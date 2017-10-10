@@ -1,8 +1,23 @@
 // Set up MySQL connection.
-var mysql = require("mysql");
+require("Sequelize");
 
 var connection;
 
+const sequelize = new Sequelize('database', 'username', 'password', {
+  host: 'localhost',
+  dialect: 'mysql',
+
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
+
+  
+});
+
+
+/*
 if (process.env.JAWSDB_URL) {
   //Heroku deployment
   connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -15,7 +30,7 @@ if (process.env.JAWSDB_URL) {
     database: "curriculum_db"
   });
 }
-
+*/
 // Make connection.
 connection.connect(function (err) {
   if (err) {

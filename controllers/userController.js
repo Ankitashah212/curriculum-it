@@ -6,7 +6,7 @@ var router = express.Router();
 var song = require("../models/users.js");
 
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
+router.get("/user/add", function(req, res) {
   song.all(function(data) {
     var hbsObject = {
       songs: data
@@ -17,7 +17,7 @@ router.get("/", function(req, res) {
 });
 
 // TODO make this endpoint work!
-router.post("/api/songs", function(req, res) {
+router.get("/user/allcources", function(req, res) {
   song.create([
     "name", "listened"
   ], [
@@ -29,7 +29,7 @@ router.post("/api/songs", function(req, res) {
 });
 
 // TODO make this endpoint work!
-router.post("/api/songs/:id", function(req, res) {
+router.post("/user/signup", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
