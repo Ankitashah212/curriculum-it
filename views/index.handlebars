@@ -13,19 +13,22 @@
 </ul>
 
 {{!-- dropdown to select pre-written course names --}}
-<form class="selection-form" action="/">
-  <select class="form-control">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-  </select>
-</form>
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Option 1</a>
+    <a class="dropdown-item" href="#">Option 2</a>
+    <a class="dropdown-item" href="#">Option 3</a>
+  </div>
+</div>
 {{!-- form to create own course --}}
 <form id="create" action="/">
     Create your own course here <br>
     <input type="text" name="coursename" value="Enter course name">
+    <br>
+    <input class="btn" type="submit" value="Submit">
 </form>
 {{!-- list the current courses linked to your account --}}
 <div class="classes">
