@@ -1,5 +1,5 @@
 <h2>Hello {{user.name}}</h2>
-
+{{!-- navbar for top of the page to link to the homepage, the sign up form and the onoging course tracking page --}}
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" href="#">Home</a>
@@ -12,7 +12,7 @@
   </li>
 </ul>
 
-
+{{!-- dropdown to select pre-written course names --}}
 <form class="selection-form" action="/">
   <select class="form-control">
     <option>1</option>
@@ -21,15 +21,13 @@
     <option>4</option>
     <option>5</option>
   </select>
-  {{!-- <br><br>
-  <input type="submit"> --}}
 </form>
-
+{{!-- form to create own course --}}
 <form id="create" action="/">
     Create your own course here <br>
     <input type="text" name="coursename" value="Enter course name">
 </form>
-
+{{!-- list the current courses linked to your account --}}
 <div class="classes">
     <ul>
        {{#each}}
@@ -37,7 +35,7 @@
        {{/each}}
     </ul>
 </div>
-
+{{!-- content linked to the track your progress button, will be hidden until the link is clicked in the navbar --}}
 <div class="container">
     <div class="course-list">
         <div class="row">
@@ -59,7 +57,6 @@
             <div class="col">
                 <div class="form-check">
                     <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
                     <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
                     <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
                     <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
