@@ -9,9 +9,9 @@ if (process.env.JAWSDB_URL) {
 } else {
   connection = mysql.createConnection({
     port: 3306,
-    host: "localhost",
+    // host: "localhost",
     user: "root",
-    password: "password", //put your password here
+    password: "", //put your password here
     database: "curriculum_db"
   });
 }
