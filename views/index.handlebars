@@ -1,7 +1,9 @@
-<navbar>
+<h2>Hello {{user.name}}</h2>
+
+{{!-- <navbar>
     <a href="#" id="sign-up">Sign Up</a>
     <a href="#" id="track">Track Your Progress</a>
-</navbar>
+</navbar> --}}
 
 <form id="selection-form" action="/">
   <select name="courses">
@@ -19,12 +21,10 @@
     <input type="text" name="coursename" value="Enter course name">
 </form>
 
-<div class="list">
-    <ol>
-        <li></li> <input type="radio" name="item-checked" value="done"><br>
-        <li></li> <input type="radio" name="item-checked" value="done"><br>
-        <li></li> <input type="radio" name="item-checked" value="done"><br>
-        <li></li> <input type="radio" name="item-checked" value="done"><br>
-        <li></li> <input type="radio" name="item-checked" value="done"><br>
-    </ol>
+<div class="classes">
+    <ul>
+       {{#each}}
+       <li>{{course.name}}</li>
+       {{/each}}
+    </ul>
 </div>
