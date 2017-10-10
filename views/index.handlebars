@@ -13,12 +13,13 @@
 </ul>
 
 
-<form id="selection-form" action="/">
-  <select name="courses">
-    <option value=""></option>
-    <option value=""></option>
-    <option value=""></option>
-    <option value=""></option>
+<form class="selection-form" action="/">
+  <select class="form-control">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
   </select>
   {{!-- <br><br>
   <input type="submit"> --}}
@@ -35,4 +36,34 @@
        <li>{{course.name}}</li>
        {{/each}}
     </ul>
+</div>
+
+<div class="container">
+    <div class="course-list">
+        <div class="row">
+            <div class="col">
+                <h3>Classes In-Progress</h3>
+            </div>
+            <div class="col">
+                <h3>Pending Submissions</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>    
+            </div> 
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                    </label>
+                </div>    
+            </div>                       
+        </div>
+    </div>
 </div>
