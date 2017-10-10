@@ -1,2 +1,30 @@
-<h1>Hi There</h1>
+<h2>Hello {{user.name}}</h2>
 
+{{!-- <navbar>
+    <a href="#" id="sign-up">Sign Up</a>
+    <a href="#" id="track">Track Your Progress</a>
+</navbar> --}}
+
+<form id="selection-form" action="/">
+  <select name="courses">
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+    <option value=""></option>
+  </select>
+  {{!-- <br><br>
+  <input type="submit"> --}}
+</form>
+
+<form id="create" action="/">
+    Create your own course here <br>
+    <input type="text" name="coursename" value="Enter course name">
+</form>
+
+<div class="classes">
+    <ul>
+       {{#each}}
+       <li>{{course.name}}</li>
+       {{/each}}
+    </ul>
+</div>
