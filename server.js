@@ -1,5 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+const sequelize = require('sequelize');
+
 
 var port = 3000;
 
@@ -21,4 +23,6 @@ var routes = require("./controllers/appController.js");
 
 app.use("/", routes);
 
-app.listen(port);
+app.listen(port, function() {
+    console.log("Server running on PORT " + port);
+});
