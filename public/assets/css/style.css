@@ -29,11 +29,13 @@ form{
 .input{
   margin-left: 30%;; 
 }
-#submit{
-  margin-left: 30%;
+.btn{
   background-color: #7FD3EC;
   color: #050505;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#submit{
+  margin-left: 30%;
 }
 .h3{
   font-size: 18px;
