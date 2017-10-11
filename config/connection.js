@@ -1,5 +1,5 @@
 var Sequelize = require("sequelize");
-const mysql2 = require("mysql2");
+//const mysql2 = require("mysql2"); DO NOT NEED, I THINK
 
 //Setting up the config
 //var connection;

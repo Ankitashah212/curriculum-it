@@ -1,7 +1,7 @@
 // Import the ORM to create functions that will interact with the database.
 const Sequelize = require("sequelize");
 const sequelize = require("../config/connection.js");
-var DataTypes = require('sequelize/lib/data-types');
+var DataTypes = require('sequelize/lib/data-types'); //Defines 'DataTypes'
 
 //=====================================
 //--------------Constructors-----------
