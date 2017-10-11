@@ -4,6 +4,7 @@ var orm = require("../config/orm.js");
 var user = {
     myCourses: function (userid, cb) {
         orm.myCourses(userid, function (res) {
+         // console.log(res);
             cb(res);
         });
     },

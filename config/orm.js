@@ -3,15 +3,18 @@ var connection = require("../config/connection.js");
 
 // Object for all our SQL statement functions.
 var orm = {
-  mycourses: function (userid, cb) {
+  myCourses: function (userid, cb) {
     var queryString = "select c.name from users u, course c, users_to_course s where"
       + "(u.userid = s.userid) and (c.courceid = s.courceid) and "
       + "(s.userid = '" + userid + "')";
+      console.log("query is " + queryString);
     connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
+     // console.log(result);
       cb(result);
+      
     });
   },
   addCourse: function (courseid, userid, cb) {
