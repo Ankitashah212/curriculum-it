@@ -27,7 +27,7 @@ form{
   padding: 10px;
 }
 .input{
-  margin-left: 30%;; 
+  margin-left: 33%;; 
 }
 .btn{
   background-color: #7FD3EC;
@@ -35,7 +35,7 @@ form{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #submit{
-  margin-left: 30%;
+  margin-left: 40%;
 }
 .h3{
   font-size: 18px;
@@ -45,6 +45,7 @@ form{
 }
 .course-list{
   text-align: center;
+  background-color: #CEECF5;
 }
 .classes{
   background-color: #CEECF5;
