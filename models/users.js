@@ -1,6 +1,7 @@
 // Import the ORM to create functions that will interact with the database.
 const Sequelize = require("sequelize");
 const sequelize = require("../config/connection.js");
+var DataTypes = require('sequelize/lib/data-types');
 
 //=====================================
 //--------------Constructors-----------
@@ -44,7 +45,7 @@ const UsersToCourse = sequelize.define('users_to_course', {
     allowNull: false,
     primaryKey: true, autoIncrement: true
   },
-  /*userid: {
+  userid: {
     type: Sequelize.STRING(50),
     allowNull: false,
   },
@@ -52,24 +53,25 @@ const UsersToCourse = sequelize.define('users_to_course', {
     type: Sequelize.INTEGER(11),
     allowNull: false,
   },
-  */inprogress: {
+  inprogress: {
     type: Sequelize.BOOLEAN(),
     defaultValue: false
   },
+  status: DataTypes.STRING
 });
+
 
 User.belongsToMany(Course, { through: UsersToCourse });
 Course.belongsToMany(User, { through: UsersToCourse });
 
-//================================================
-//--------------Create Tables + Queries-----------
-//================================================
-
+//=========================================
+//--------------Create Tables--------------
+//=========================================
 
 
 //*****************Queries for User******************
 
-/*sequelize.sync({force: true}).then( function() {
+sequelize.sync({force: true}).then( function() {
   // Table created
   return User.create({
       userid: 'tara',
@@ -77,24 +79,28 @@ Course.belongsToMany(User, { through: UsersToCourse });
       password: 'tara',
   });
 });
-*/
+
+sequelize.sync({force: true}).then( function() {
+  // Table created
+  return Course.create({
+      name: 'html5',
+      description: 'entry level course'
+  });
+});
+
+sequelize.sync({force: true}).then( function() {
+  return UsersToCourse.create({
+    userid: User.userid, 
+    courseid: Course.courseid
+  });
+});
 
 
-
+/*
 sequelize.sync().then(function () {
 
   User.findAll().then(function(users) {
       console.log("*********THIS IS THE USER LENGTH*************", users.length);
   });
 
-});
-
-/*
-  sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err);
-  }); */
+});*/

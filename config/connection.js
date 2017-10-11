@@ -6,7 +6,6 @@ const mysql2 = require("mysql2");
 
 var sequelize= new Sequelize('curriculum_db', 'root', 'root', {
    host: "localhost",
-   port: 3306,
    dialect: 'mysql'
 });
 
