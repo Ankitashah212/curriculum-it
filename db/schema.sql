@@ -37,3 +37,4 @@ CREATE TABLE steps(
 CONSTRAINT fk_id_course FOREIGN KEY (courseid) REFERENCES course(courseid)
 );
 
+select u.name, c.name, uc.inprogress from users u, cource c, users_to_cource uc where (uc.userid = u.userid) and (uc.courceid = c.courceid);
