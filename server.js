@@ -3,7 +3,7 @@ var bodyParser = require("body-parser");
 const sequelize = require('./config/connection.js');
 
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
 var app = express();
 
@@ -20,9 +20,10 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/appController.js");
-require("./controllers/courceController.js");
+var userRoutes = require("./controllers/userController.js");
 
-app.use("/", routes);
+app.use("/", routes, userRoutes);
+// app.use("/user", userRoutes);
 
 app.listen(PORT, function() {
     console.log("Server running on PORT " + PORT);
