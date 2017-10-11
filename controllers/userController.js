@@ -5,36 +5,34 @@ var router = express.Router();
 // Import the model (users.js) to use its database functions.
 var users = require("../models/users.js");
 
-// Create all our routes and set up logic within those routes where required.
-// router.get("/user", function(req, res) {
+router.get("/user", function(req, res) {
+      res.render("index");
+  });
 
-//   });
-// });
-
-//may change to post
+//This might be a post request.
 router.get("/user/allcourses", function(req, res) {
-  // users.all(function(data) {
-  //   var allCourses = {
+    res.send("All active (and completed?) courses ");
+ //Will possibly use the code below to grab info from tables, but could change to include sequelize syntax--julia
+  // var allCourses = {
   //     course: data
   //   };
-  var fakeData = {coursename: "Biology", description: "A biology course"};
-  console.log(fakeData);
-  res.render("index", fakeData);
-  });
-// });
-
-
-router.post("/user/signup", function(req, res) {
-  users.create([
-    "userid", "courseid"
-  ], [
-    req.body.userid, req.body.courseid
-  ], function(result) {
-    res.redirect("/")
-  });
+  // res.render("index", allCourses);
 });
 
-  // users.create([
+router.get("/user/signup", function(req, res) {
+  res.send("This is where users can sign up for external classes.")
+  });
+
+  //I think we need a post and get for user signup? To be completed w/db info. --julia
+// router.post("/user/signup", function(req, res) {
+//   });
+
+module.exports = router;
+//END OF WORKING CODE
+//------------------------------------------------
+
+//saving for reference, from an in-class exercise--julia
+ // users.create([
   //   "name", "listened"
   // ], [
   //   req.body.name, req.body.sleepy
@@ -63,4 +61,3 @@ router.post("/user/signup", function(req, res) {
 // });
 
 // Export routes for server.js to use.
-module.exports = router;
