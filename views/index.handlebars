@@ -15,27 +15,23 @@
 {{!-- dropdown to select pre-written course names --}}
 <div class="container">
     <div class="row">
-        <div class="col">
-            <div class="dropdown">
+        <div class="col" id="dropdown">
                 <p class="h3">Pre-selcted Courses</p>
-                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select a class
-                </button>
-                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Option 1</a>
-                    <a class="dropdown-item" href="#">Option 2</a>
-                    <a class="dropdown-item" href="#">Option 3</a>
-                </div>
-            </div>
+                <select class="class-selection">
+                    <option class="selections"><p class="options">Hamburger 1</p></option>
+                    <option class="selections"><p class="options">Hamburger 2</p></option>
+                    <option class="selections"><p class="options">Hamburger 3</p></option>
+                    <option class="selections"><p class="options">Hamburger 4</p></option>
+                </select>
         </div>
 {{!-- form to create own course --}}
         <div class="col">
             <form id="create" action="/">
             <p class="h3">Create Your Own Course</p>
-            <input type="text" class="input" />
+            <input type="text" class="input"/>
             </label>
             <br><br>
-            <input class="btn" type="submit" value="Submit" id="submit">
+            <input type="button" class="btn" id="submit" value="Submit">
         </form>
         </div>
     </div>
@@ -55,7 +51,7 @@
     <div class="course-list">
         <div class="row">
             <div class="col">
-                <h3>Classes In-Progress</h3>
+                <h3>Classes In-Progress</h3>                    
             </div>
             <div class="col">
                 <h3>Pending Submissions</h3>

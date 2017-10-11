@@ -12,11 +12,11 @@ h2, h3{
   color: #050505;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.dropdown{
+#dropdown{
   background-color: #CEECF5;
   padding: 10px;
 }
-.dropdown-toggle{
+.class-selection{
   background-color: #7FD3EC;
   color:#050505;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -26,10 +26,11 @@ form{
   background-color: #CEECF5;
   padding: 10px;
 }
-input{
+.input{
   margin-left: 30%;; 
 }
 #submit{
+  margin-left: 30%;
   background-color: #7FD3EC;
   color: #050505;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
