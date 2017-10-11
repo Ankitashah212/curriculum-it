@@ -8,7 +8,7 @@ if (process.env.JAWSDB_URL) {
 
     host: 'localhost',
     user: 'root',
-    
+  //  password : "password",
     database : 'curriculum_db'
   
   //  host: process.env.DB_HOST,
