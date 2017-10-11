@@ -4,7 +4,6 @@ var orm = require("../config/orm.js");
 var user = {
     myCourses: function (userid, cb) {
         orm.myCourses(userid, function (res) {
-         // console.log(res);
             cb(res);
         });
     },
@@ -26,11 +25,6 @@ var user = {
     },
     allCourse: function (id, cb) {
         allCourse.update(function (res) {
-            cb(res);
-        });
-    },// add to cource and also sign up user for it in controller
-    addToCource: function (name, desc, cb) {
-      addToCource.update(function (res) {
             cb(res);
         });
     }
