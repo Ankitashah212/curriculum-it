@@ -2,6 +2,7 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../config/connection.js");
 var DataTypes = require('sequelize/lib/data-types'); //Defines 'DataTypes'
+const Course = require("./course.js");
 
 //=====================================
 //--------------Constructors-----------
@@ -23,20 +24,13 @@ const User = sequelize.define('user', {
   }
 });
 
-const Course = sequelize.define('course', {
-  courseid: {
-      type: Sequelize.INTEGER(11),
-      unique: true,
-      allowNull: false,
-      primaryKey: true, autoIncrement: true
-  },
-  name: {
-      type: Sequelize.STRING(50),
-  },
-  description: {
-      type: Sequelize.STRING(150),        
-  }
-});
+User.sync();
+
+module.exports = User;
+
+
+
+
 
 const UsersToCourse = sequelize.define('users_to_course', {
   signups: {
@@ -57,12 +51,89 @@ const UsersToCourse = sequelize.define('users_to_course', {
     type: Sequelize.BOOLEAN(),
     defaultValue: false
   },
-  status: DataTypes.STRING
+  status: DataTypes.BOOLEAN
 });
-
 
 User.belongsToMany(Course, { through: UsersToCourse });
 Course.belongsToMany(User, { through: UsersToCourse });
+
+/*
+sequelize.sync({force: true}).then( function() {
+  // Table created
+  User.findAll({
+    include: [{
+      model: Course,
+      through: {
+        attributes: ['Course.name', 'UsersToCourse.inprogress'],
+      }
+    }] 
+  }); //End findAll
+});
+*/
+
+
+
+//THIS IS ALL THAT SHOULD BE IN THIS FILE. EVERYTHING ELSE HAS BEEN COMMENTED OUT. 
+//TO BE DELETED UPON WORKING APP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+!!!!!!!!!!!!!!!!!!!***********COME BACK TO THIS PIVOT TABLE****************!!!!!!!!!!!!!!!!!!!!
+
+
+*/
+
+
+
+//***************************************************************
+
+
+
+
+
+
+
+
+
+
+
 
 //=========================================
 //--------------Create Tables--------------
@@ -71,7 +142,7 @@ Course.belongsToMany(User, { through: UsersToCourse });
 
 //*****************Queries for User******************
 
-sequelize.sync({force: true}).then( function() {
+/*sequelize.sync({force: true}).then( function() {
   // Table created
   return User.create({
       userid: 'tara',
@@ -96,7 +167,7 @@ sequelize.sync({force: true}).then( function() {
 });
 
 
-/*
+
 sequelize.sync().then(function () {
 
   User.findAll().then(function(users) {
@@ -104,3 +175,4 @@ sequelize.sync().then(function () {
   });
 
 });*/
+

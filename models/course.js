@@ -1,13 +1,12 @@
 // Import the ORM to create functions that will interact with the database.
 const Sequelize = require("sequelize");
 const sequelize = require("../config/connection.js");
+//const User = require("./users.js");
 
 
 //****************Course Contructor*****************
 
-
-
-const Course = sequelize.define('course', {
+ const Course = sequelize.define('course', {
   courseid: {
       type: Sequelize.INTEGER(11),
       unique: true,
@@ -22,15 +21,45 @@ const Course = sequelize.define('course', {
   }
 });
 
+Course.sync();
+
+module.exports = Course;
+
+
+
+//THIS IS ALL THAT SHOULD BE IN THIS FILE. EVERYTHING ELSE HAS BEEN COMMENTED OUT. 
+//TO BE DELETED UPON WORKING APP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //*****************Queries for Course******************
 
 //-----Create a new course-----
 
-sequelize.sync({force: true}).then( function() {
+/*sequelize.sync({force: true}).then( function() {
   // Table created
   return Course.create({
       name: 'html5',
       description: 'entry level course'
+  }, {
+    name: 'css3',
+    description: "entry level course on css"
   });
 });
 
@@ -43,7 +72,7 @@ sequelize.sync().then(function () {
     });
   
   });
-
+*/
 
 /*
 const Sequelize = require('sequelize');
@@ -114,4 +143,3 @@ Course.sync({force: true}).then( function() {
 
 
 // Export the database functions for the controller (catsController.js).
-//module.exports = courseOrm;

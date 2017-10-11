@@ -20,6 +20,7 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/appController.js");
+require("./controllers/courceController.js");
 
 app.use("/", routes);
 
