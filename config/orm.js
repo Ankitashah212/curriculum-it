@@ -4,8 +4,8 @@ var connection = require("../config/connection.js");
 // Object for all our SQL statement functions.
 var orm = {
   myCourses: function (userid, cb) {
-    var queryString = "select c.name from users u, course c, users_to_course s where"
-      + "(u.userid = s.userid) and (c.courseid = s.courseid) and 
+    var queryString = "select c.name , c.description from users u, course c, users_to_course s where"
+      + "(u.userid = s.userid) and (c.courseid = s.courseid) and"
       + "(s.userid = '" + userid + "')";
     connection.query(queryString, function (err, result) {
       if (err) {

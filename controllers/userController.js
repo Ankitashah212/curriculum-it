@@ -4,6 +4,8 @@ var router = express.Router();
 
 const User = require("../models/users.js");
 
+var orm = require("../config/orm.js");
+
 // Import the model (users.js) to use its database functions.
 //not sure if needed since we have const User, but commenting out just in case
 // var users = require("../models/users.js");
@@ -42,6 +44,12 @@ router.post("/", function(req, res) {
 router.get("/user/:id", function(req, res) {
   var userID = req.params.id;
   console.log(userID);
+
+
+orm.myCourses("ankita", function(){
+  console.log(res);
+});
+
   //will grab user info from database after new user creates account or user signs in 
   //below code will need to be adjusted and will query all user courses to show on user page 
   // connection.query("UPDATE `tasks` SET ? WHERE id = " + updateID,
