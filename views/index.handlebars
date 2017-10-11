@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col">
             <div class="dropdown">
-                <p>Pre-selcted Courses</p>
+                <p class="h3">Pre-selcted Courses</p>
                 <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Select a class
                 </button>
@@ -31,8 +31,9 @@
 {{!-- form to create own course --}}
         <div class="col">
             <form id="create" action="/">
-            <p>Create your own course here</p>
-            <input type="text" name="coursename">
+            <p class="h3">Create Your Own Course</p>
+            <input type="text" class="input" />
+            </label>
             <br><br>
             <input class="btn" type="submit" value="Submit" id="submit">
         </form>
@@ -42,7 +43,7 @@
 <br>
 {{!-- list the current courses linked to your account --}}
 <div class="classes"> 
-    <p>List of Courses in Progress</p>
+    <p class="h3">List of Courses in Progress</p>
     <ul>
        {{#each course}}
        <li>{{this.name}}</li>
