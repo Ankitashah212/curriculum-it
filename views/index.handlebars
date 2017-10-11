@@ -13,24 +13,32 @@
 </ul>
 <br>
 {{!-- dropdown to select pre-written course names --}}
-<div class="dropdown">
-  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Option 1</a>
-    <a class="dropdown-item" href="#">Option 2</a>
-    <a class="dropdown-item" href="#">Option 3</a>
-  </div>
-</div>
-<br>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="dropdown">
+                <p>Select from our list of popular courses</p>
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select a class
+                </button>
+                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Option 1</a>
+                    <a class="dropdown-item" href="#">Option 2</a>
+                    <a class="dropdown-item" href="#">Option 3</a>
+                </div>
+            </div>
+        </div>
 {{!-- form to create own course --}}
-<form id="create" action="/">
-    <p>Create your own course here</p>
-    <input type="text" name="coursename" value="Enter course name">
-    <br><br>
-    <input class="btn" type="submit" value="Submit">
-</form>
+        <div class="col">
+            <form id="create" action="/">
+            <p>Create your own course here</p>
+            <input type="text" name="coursename">
+            <br><br>
+            <input class="btn" type="submit" value="Submit">
+        </form>
+        </div>
+    </div>
+</div>
 <br>
 {{!-- list the current courses linked to your account --}}
 <div class="classes"> 

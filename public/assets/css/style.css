@@ -1,21 +1,32 @@
+h2, h3{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .nav-tabs{
   background-color: #F0ECEC;
 }
 .nav-link{
-  color: #726F6F;
+  color: #1B1919;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .dropdown{
   margin-left: 5%;
 }
 .dropdown-toggle{
   background-color: #7FD3EC;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #create{
   margin-left: 5%;
+  
 }
 .btn{
   background-color: #7FD3EC;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .classes{
   margin-left: 5%;
+}
+p{
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
