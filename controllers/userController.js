@@ -7,7 +7,11 @@ var users = require("../models/users.js");
 
 router.get("/user", function(req, res) {
       res.render("index");
-  });
+
+   
+});
+// TODO make this endpoint work!
+
 
 //This might be a post request.
 router.get("/user/allcourses", function(req, res) {
@@ -18,6 +22,7 @@ router.get("/user/allcourses", function(req, res) {
   //   };
   // res.render("index", allCourses);
 });
+
 
 router.get("/user/signup", function(req, res) {
   res.send("This is where users can sign up for external classes.")
