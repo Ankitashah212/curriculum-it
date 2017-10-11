@@ -21,14 +21,13 @@ const User = sequelize.define('user', {
   password: {
       type: Sequelize.STRING(15),
       allowNull: false        
-  }
+  },
+    // freezeTableName: true
 });
 
 User.sync();
 
 module.exports = User;
-
-
 
 
 
@@ -57,6 +56,14 @@ const UsersToCourse = sequelize.define('users_to_course', {
 User.belongsToMany(Course, { through: UsersToCourse });
 Course.belongsToMany(User, { through: UsersToCourse });
 
+// User.findAll({
+//   include: [{
+//     model: Course,
+//     through: {
+//       attributes: ['createdAt']
+//     }
+//   }]
+// });
 /*
 sequelize.sync({force: true}).then( function() {
   // Table created

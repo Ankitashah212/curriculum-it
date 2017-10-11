@@ -4,9 +4,10 @@ var Sequelize = require("sequelize");
 //Setting up the config
 //var connection;
 
-var sequelize= new Sequelize('curriculum_db', 'root', 'root', {
+var sequelize= new Sequelize('curriculum_db', 'root', "",{
    host: "localhost",
    dialect: 'mysql',
+
    pool: {
     max: 5,
     min: 0,
