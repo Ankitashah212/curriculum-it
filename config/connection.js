@@ -6,7 +6,12 @@ const mysql2 = require("mysql2");
 
 var sequelize= new Sequelize('curriculum_db', 'root', 'root', {
    host: "localhost",
-   dialect: 'mysql'
+   dialect: 'mysql',
+   pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
 });
 
 sequelize
