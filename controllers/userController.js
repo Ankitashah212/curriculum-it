@@ -1,10 +1,8 @@
 var express = require("express");
 
 var router = express.Router();
-
-const User = require("../models/users.js");
-
 var orm = require("../config/orm.js");
+const courses = require("../models/course.js");
 
 // Import the model (users.js) to use its database functions.
 //not sure if needed since we have const User, but commenting out just in case
@@ -48,6 +46,13 @@ router.get("/user/:id", function(req, res) {
 
 orm.myCourses("ankita", function(){
   console.log(res);
+});
+
+courses.all(function(data) {
+var object = {
+  courses: data
+}
+console.log(object);
 });
 
   //will grab user info from database after new user creates account or user signs in 

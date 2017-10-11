@@ -5,24 +5,16 @@ const orm = require("../config/orm.js");
 
 //****************Course Contructor*****************
 
- const Course = sequelize.define('course', {
-  courseid: {
-      type: Sequelize.INTEGER(11),
-      unique: true,
-      allowNull: false,
-      primaryKey: true, autoIncrement: true
-  },
-  name: {
-      type: Sequelize.STRING(50),
-  },
-  description: {
-      type: Sequelize.STRING(150),        
-  }
-});
+var courses = {
+    all: function(cb) {
+        orm.all("course", function(res) {
+    cb(res);
+    });
+}
+};
 
-Course.sync();
 
-module.exports = Course;
+module.exports = courses;
 
 
 
