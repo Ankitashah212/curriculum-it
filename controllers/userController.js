@@ -2,65 +2,51 @@ var express = require("express");
 
 var router = express.Router();
 
+const User = require("../models/users.js");
+
+
 // Import the model (users.js) to use its database functions.
-var users = require("../models/users.js");
+//not sure if needed since we have const User, but commenting out just in case
+// var users = require("../models/users.js");
 
+var userid = 'ankita';
 // Create all our routes and set up logic within those routes where required.
-router.get("/user", function(req, res) {
-  song.all(function(data) {
-    var hbsObject = {
-      songs: data
-    };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
+router.get("/", function (req, res) {
+
+  //login login if user logged in
+  //show default page
+
+  //if not then show login page
+  //for now showing default page
+  if (user.length > 0) {
+    res.render("profile");
+    // get data from database and show default page
+  } else {
+    // show login page
+  }
+
+});
+
+router.post("/", function (req, res) {
+  var username = req.body.username;
+  var name = req.body.name;
+  var password = req.body.password;
+  console.log(username + "" + name + "" + password);
+  //if username is in database, then skip below and go to /user route. Else, make new user using code below.
+  return User.create({
+    userid: username,
+    name: name,
+    password: password
   });
 });
 
-//may change to post
-router.get("/user/allcourses", function(req, res) {
-  users.all(function(data) {
-    var allCourses = {
-      course: data
-    };
-  console.log(allCourses);
-  res.render("index", allCourses);
+router.get("/user/allCourses/", function (req, res) {
+  var userID = req.params.id;
+
+
+  User.myCourses("ankita", function (data) {
+    console.log(data);
   });
 });
 
-
-  // users.create([
-  //   "name", "listened"
-  // ], [
-  //   req.body.name, req.body.sleepy
-  // ], function(result) {
-    // Send back the ID of the new quote
-    // res.json({ id: result.insertId });
-
-
-
-//router.post("/user/signup", function(req, res) {
-  //users.create([
-  //   "userid", "courseid"
-  // ], [
-  //   req.body.
-  // ]
-
-  // ])
-  // var condition = "id = " + req.params.id;
-
-  // console.log("condition", condition);
-
-//   song.update({
-//     listened: req.body.sleepy
-//   }, condition, function(result) {
-//     if (result.changedRows == 0) {
-//       // If no rows were changed, then the ID must not exist, so 404
-//       return res.status(404).end();
-//     } else {
-//       res.status(200).end();
-//     }
-//   });
-// });
-
-// Export routes for server.js to use.
 module.exports = router;
