@@ -50,10 +50,6 @@ router.get("/user/allCourses/", function (req, res) {
 });
 
 
-router.get("/user/allcourses", function (req, res) {
-  //when user clicks on tab, call query with all courses associated with that user 
-
-});
 
 
 
