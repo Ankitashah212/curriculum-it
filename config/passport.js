@@ -4,6 +4,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy  = require('passport-twitter').Strategy;
 var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
 
+
 // load up the user model
 var User       = require('../models/user');
 
@@ -59,8 +60,10 @@ module.exports = function(passport) {
 
                 // all is well, return user
                 else
-                console.log(user);
+                // createLocalUsers(user);
+                // console.log(user);
                     return done(null, user);
+                    
                    
             });
         });
@@ -93,10 +96,11 @@ module.exports = function(passport) {
                     if (user) {
                         return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
                     } else {
-
+                        console.log(" req form top"+req);
+                        // createLocalUsers(req)
                         // create the user
                         var newUser            = new User();
-
+                        newUser.local.name  = req.body.name;
                         newUser.local.email    = email;
                         newUser.local.password = newUser.generateHash(password);
 
@@ -121,7 +125,10 @@ module.exports = function(passport) {
                         return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
                         // Using 'loginMessage instead of signupMessage because it's used by /connect/local'
                     } else {
+                     
+                        console.log(" req form bottom"+req);
                         var user = req.user;
+                        user.local.name = req.body.name;
                         user.local.email = email;
                         user.local.password = user.generateHash(password);
                         user.save(function (err) {
@@ -373,3 +380,6 @@ module.exports = function(passport) {
     }));
 
 };
+
+
+// stores users into sql
