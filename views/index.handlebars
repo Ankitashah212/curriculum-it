@@ -24,7 +24,7 @@
   </div>
 </div>
 {{!-- form to create own course --}}
-<form id="create" action="/">
+<form id="create" action="/" method="POST">
     Create your own course here <br>
     <input type="text" name="coursename" value="Enter course name">
     <br>
@@ -33,9 +33,9 @@
 {{!-- list the current courses linked to your account --}}
 <div class="classes">
     <ul>
-       {{!-- {{#each}}
+       {{#each course}}
        <li>{{course.name}}</li>
-       {{/each}} --}}
+       {{/each}}
     </ul>
 </div>
 {{!-- content linked to the track your progress button, will be hidden until the link is clicked in the navbar --}}
@@ -52,9 +52,9 @@
         <div class="row">
             <div class="col">
                 <ul>
-                {{!-- {{#each}}
+                {{#each course}}
                     <li>{{course.description}}</li>
-                {{/each}} --}}
+                {{/each}}
                 </ul>    
             </div> 
             <div class="col">
