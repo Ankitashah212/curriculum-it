@@ -4,10 +4,9 @@ const mysql2 = require("mysql2");
 //Setting up the config
 //var connection;
 
-var sequelize= new Sequelize('curriculum_db', 'root', 'root', {
+var sequelize= new Sequelize('curriculum_db', 'root', "",{
    host: "localhost",
-   port: 3306,
-   dialect: 'mysql'
+   dialect: 'mysql',
 });
 
 sequelize
