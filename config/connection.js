@@ -1,10 +1,10 @@
 var Sequelize = require("sequelize");
-//const mysql2 = require("mysql2"); DO NOT NEED, I THINK
+//const mysql2 = require("mysql2"); 
 
 //Setting up the config
 //var connection;
 
-var sequelize= new Sequelize('curriculum_db', 'root', 'root', {
+var sequelize= new Sequelize('curriculum_db', 'root', "", {
    host: "localhost",
    dialect: 'mysql',
    pool: {
