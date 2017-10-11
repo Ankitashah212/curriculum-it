@@ -4,8 +4,6 @@ var router = express.Router();
 
 const User = require("../models/users.js");
 
-var orm = require("../config/orm.js");
-
 // Import the model (users.js) to use its database functions.
 //not sure if needed since we have const User, but commenting out just in case
 // var users = require("../models/users.js");
