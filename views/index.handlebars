@@ -1,4 +1,4 @@
-<h2>Hello {{user.name}}</h2>
+<h2>Hello{{user.name}}</h2>
 {{!-- navbar for top of the page to link to the homepage, the sign up form and the onoging course tracking page --}}
 <ul class="nav nav-tabs">
   <li class="nav-item">
@@ -11,7 +11,7 @@
     <a class="nav-link" href="#">Track Your Progress</a>
   </li>
 </ul>
-
+<br>
 {{!-- dropdown to select pre-written course names --}}
 <div class="dropdown">
   <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,18 +23,21 @@
     <a class="dropdown-item" href="#">Option 3</a>
   </div>
 </div>
+<br>
 {{!-- form to create own course --}}
 <form id="create" action="/">
-    Create your own course here <br>
+    <p>Create your own course here</p>
     <input type="text" name="coursename" value="Enter course name">
-    <br>
+    <br><br>
     <input class="btn" type="submit" value="Submit">
 </form>
+<br>
 {{!-- list the current courses linked to your account --}}
-<div class="classes">
+<div class="classes"> 
+    <p>List of Courses in Progress</p>
     <ul>
        {{#each course}}
-       <li>{{name}}</li>
+       <li>{{this.name}}</li>
        {{/each}}
     </ul>
 </div>
@@ -53,7 +56,7 @@
             <div class="col">
                 <ul>
                 {{#each course}}
-                    <li>{{description}}</li>
+                    <li>{{this.description}}</li>
                 {{/each}}
                 </ul>    
             </div> 

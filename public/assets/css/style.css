@@ -1,19 +1,21 @@
-li {
-  padding: 5px;
-  margin: 5px;
-  background: #faebd7;
+.nav-tabs{
+  background-color: #F0ECEC;
 }
-
-.label {
-  font-weight: bold;
+.nav-link{
+  color: #726F6F;
 }
-
-.create-update-form {
-  padding: 5px;
-  margin: 5px;
-  background: aqua;
+.dropdown{
+  margin-left: 5%;
 }
-
-.form-group {
-  margin-bottom: 5px;
+.dropdown-toggle{
+  background-color: #7FD3EC;
+}
+#create{
+  margin-left: 5%;
+}
+.btn{
+  background-color: #7FD3EC;
+}
+.classes{
+  margin-left: 5%;
 }
