@@ -4,6 +4,10 @@ var router = express.Router();
 
 const User = require("../models/users.js");
 
+// Import the model (users.js) to use its database functions.
+//not sure if needed since we have const User, but commenting out just in case
+// var users = require("../models/users.js");
+
 var user = 'ankita';
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
@@ -28,6 +32,7 @@ router.post("/", function(req, res) {
   var name = req.body.name;
   var password = req.body.password;
   console.log(username + "" + name + "" + password);
+//if username is in database, then skip below and go to /user route. Else, make new user using code below.
   return User.create({
     userid: username,
     name: name,
@@ -35,9 +40,6 @@ router.post("/", function(req, res) {
 });
 
 });
-
-// Import the model (users.js) to use its database functions.
-var users = require("../models/users.js");
 
 router.get("/user", function(req, res) {
       res.render("index");
@@ -50,6 +52,7 @@ router.get("/user", function(req, res) {
 //This might be a post request.
 router.get("/user/allcourses", function(req, res) {
     res.send("All active (and completed?) courses ");
+    console.log("inside all courses");
  //Will possibly use the code below to grab info from tables, but could change to include sequelize syntax--julia
   // var allCourses = {
   //     course: data
