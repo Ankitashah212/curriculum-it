@@ -3,7 +3,7 @@ var connection = require("../config/connection.js");
 
 // Object for all our SQL statement functions.
 var orm = {
-  myCources: function (userid, cb) {
+  mycourses: function (userid, cb) {
     var queryString = "select c.name from users u, course c, users_to_course s where"
       + "(u.userid = s.userid) and (c.courceid = s.courceid) and 
       + "(s.userid = '" + userid + "')";
@@ -14,9 +14,9 @@ var orm = {
       cb(result);
     });
   },
-  addCource: function (courceid, userid, cb) {
+  addCourse: function (courseid, userid, cb) {
     var queryString = "INSERT INTO users_to_course (userid, courceid) values ("
-    +"'" + userid +"', "+ courceid + ")";
+    +"'" + userid +"', "+ courseid + ")";
 
     console.log(queryString);
 
@@ -29,7 +29,7 @@ var orm = {
     });
   },
   
-  deleteCource: function (id, cb) {
+  deleteCourse: function (id, cb) {
     var queryString = "delete from users_to_course where signups = " + id;
   
     console.log(queryString);
@@ -43,7 +43,7 @@ var orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  updateCource: function (id, cb) {
+  updateCourse: function (id, cb) {
     var queryString = " update users_to_course set inprogress = 1  where signups = " + id;
 
     console.log(queryString);
@@ -55,7 +55,7 @@ var orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  allCource: function ( cb) {
+  allCourse: function ( cb) {
     var queryString = "select * from course ";
 
     console.log(queryString);

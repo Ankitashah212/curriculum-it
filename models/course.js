@@ -18,13 +18,13 @@ var user = {
             cb(res);
         });
     },
-    deleteCource: function (id, cb) {
-        deleteCource.update(id, function (res) {
+    deleteCourse: function (id, cb) {
+        deleteCourse.update(id, function (res) {
             cb(res);
         });
     },
-    allCource: function (id, cb) {
-        allCource.update(function (res) {
+    allCourse: function (id, cb) {
+        allCourse.update(function (res) {
             cb(res);
         });
     }
