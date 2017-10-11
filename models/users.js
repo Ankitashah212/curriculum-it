@@ -28,6 +28,11 @@ var user = {
         allCourse.update(function (res) {
             cb(res);
         });
+    },// add to cource and also sign up user for it in controller
+    addToCource: function (name, desc, cb) {
+      addToCource.update(function (res) {
+            cb(res);
+        });
     }
 };
 
