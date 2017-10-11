@@ -1,5 +1,5 @@
 var Sequelize = require("sequelize");
-const mysql2 = require("mysql2");
+//const mysql2 = require("mysql2"); DO NOT NEED, I THINK
 
 //Setting up the config
 //var connection;
@@ -7,6 +7,12 @@ const mysql2 = require("mysql2");
 var sequelize= new Sequelize('curriculum_db', 'root', "",{
    host: "localhost",
    dialect: 'mysql',
+
+   pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
 });
 
 sequelize
