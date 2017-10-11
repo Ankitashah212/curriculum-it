@@ -19,7 +19,7 @@ router.get("/", function (req, res) {
   //if not then show login page
   //for now showing default page
   if (user.length > 0) {
-    res.render("profile");
+    res.render("index");
     // get data from database and show default page
   } else {
     // show login page
@@ -43,10 +43,50 @@ router.post("/", function (req, res) {
 router.get("/user/allCourses/", function (req, res) {
   var userID = req.params.id;
 
+  //if not then show login page
+  //for now showing default page
+  if (user.length > 0) {
+    res.render("profile");
+    // get data from database and show default page
+  } else {
+    // show login page
+  }
+
+<<<<<<< HEAD
+});
+
+router.post("/", function (req, res) {
+  var username = req.body.username;
+  var name = req.body.name;
+  var password = req.body.password;
+  console.log(username + "" + name + "" + password);
+  //if username is in database, then skip below and go to /user route. Else, make new user using code below.
+  return User.create({
+    userid: username,
+    name: name,
+    password: password
+  });
+});
+
+router.get("/user/allCourses/", function (req, res) {
+  var userID = req.params.id;
+
 
   User.myCourses("ankita", function (data) {
     console.log(data);
   });
 });
+=======
+  User.myCourses("ankita", function (data) {
+    console.log(data);
+  });
+});
+
+
+
+
+>>>>>>> 7c53fa48f9f4728e8868176f8329af8fe7a6682f
 
 module.exports = router;
+
+

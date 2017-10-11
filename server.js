@@ -1,10 +1,10 @@
+
 // server.js
 
 
 // get all the tools we need
 var express  = require('express');
 var app      = express();
-const sequelize = require('sequelize');
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -19,6 +19,10 @@ var exphbs = require("express-handlebars");
 var configDB = require('./config/database.js');
 var path = require('path');
 var helpers = require('handlebars-helpers')();
+
+
+var PORT = process.env.PORT || 8080;
+
 
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
@@ -59,10 +63,17 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
 // Import routes and give the server access to them.
 // var routes = require("./controllers/appController.js");
+
 // app.use("/", routes);
 require('./models/routes.js')(app, passport); 
 // load our routes and pass in our app and fully configured passport
 
-// launch ======================================================================
-app.listen(port);
-console.log('The magic happens on port ' + port);
+var userRoutes = require("./controllers/userController.js");
+
+app.use("/", userRoutes);
+// app.use("/user", userRoutes);
+
+app.listen(PORT, function() {
+    console.log("Server running on PORT " + PORT);
+});
+

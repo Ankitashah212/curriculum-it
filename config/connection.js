@@ -10,7 +10,11 @@ if(process.env.JAWSDB_URL) {
     port: 3306,
     host: "localhost",
     user: "root",
+<<<<<<< HEAD
     password: "",
+=======
+    password: "password",
+>>>>>>> 7c53fa48f9f4728e8868176f8329af8fe7a6682f
     database: "curriculum_db"
   });
 }
@@ -25,4 +29,9 @@ connection.connect(function (err) {
 });
 
 // Export connection for our ORM to use.
+<<<<<<< HEAD
 module.exports = connection;
+=======
+module.exports = connection;
+
+>>>>>>> 7c53fa48f9f4728e8868176f8329af8fe7a6682f
