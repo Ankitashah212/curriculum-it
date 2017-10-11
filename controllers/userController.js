@@ -43,14 +43,10 @@ router.post("/", function (req, res) {
 router.get("/user/allCourses/", function (req, res) {
   var userID = req.params.id;
 
-
   User.myCourses("ankita", function (data) {
     console.log(data);
   });
 });
-
-
-
 
 
 module.exports = router;
