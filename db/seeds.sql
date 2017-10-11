@@ -1,5 +1,4 @@
-
-
+USE curriculum_db;
 INSERT INTO users (userid, name, password ) values ('ankita', 'ankita', "ankita");
 INSERT INTO users (userid, name, password ) values ('tara', 'tara', "tara");
 INSERT INTO users (userid, name, password ) values ('jose', 'jose', "jpse");

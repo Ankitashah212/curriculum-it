@@ -12,11 +12,114 @@
             <div class="well">
                 <h3><span class="fa fa-user"></span> Local</h3>
 
-                 {{#if user.local.email}}
+
+
+
+
+</div>
+
+<h2>Hello{{#if user}}
+    <ul>
+        {{#if user.local.name}}<li>{{user.local.name}}</li>{{/if}}
+        {{#if user.facebook.token}}<li>{{user.facebook.name}}</li>{{/if}}
+          {{#if user.twitter.token}}<li>{{user.twitter.displayName }}</li>{{/if}}
+          {{#if user.google.token}}<li>{{user.google.name}}</li>{{/if}}
+    </ul>
+{{else}}
+   No address given
+{{/if}}</h2>
+{{!-- navbar for top of the page to link to the homepage, the sign up form and the onoging course tracking page --}}
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Sign Up</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Track Your Progress</a>
+  </li>
+</ul>
+<br>
+{{!-- dropdown to select pre-written course names --}}
+<div class="container">
+    <div class="row">
+        <div class="col" id="dropdown">
+                <p class="h3">Pre-selcted Courses</p>
+                <br>
+                <select class="class-selection">
+                    <option class="selections"><p class="options">Hamburger 1</p></option>
+                    <option class="selections"><p class="options">Hamburger 2</p></option>
+                    <option class="selections"><p class="options">Hamburger 3</p></option>
+                    <option class="selections"><p class="options">Hamburger 4</p></option>
+                </select>
+        </div>
+{{!-- form to create own course --}}
+        <div class="col">
+            <form id="create" action="/">
+            <p class="h3">Create Your Own Course</p>
+            <input type="text" class="input"/>
+            </label>
+            <br><br>
+            <input type="button" class="btn" id="submit" value="Submit">
+        </form>
+        </div>
+    </div>
+</div>
+<br>
+{{!-- list the current courses linked to your account --}}
+<div class="classes"> 
+    <p class="h3">List of Courses in Progress</p>
+    <ul>
+       {{#each course}}
+       <li>{{this.name}}</li>
+       {{/each}}
+    </ul>
+</div>
+<br>
+{{!-- content linked to the track your progress button, will be hidden until the link is clicked in the navbar --}}
+<div class="container">
+    <div class="course-list">
+        <div class="row">
+            <div class="col">
+                <h3 class="mt1">Classes In-Progress</h3>                    
+            </div>
+            <div class="col">
+                <h3 class="mt1">Pending Submissions</h3>
+            </div>
+            <div class="col">
+                <h3 class="mt1">Delete</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul>
+                {{#each course}}
+                    <li>{{this.description}}</li>
+                {{/each}}
+                </ul>    
+            </div> 
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                    <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                    <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
+                    </label>
+                </div>    
+            </div>  
+            <div class="col">
+                <input type="button" class="btn" id="delete" value="Delete">
+            </div>                     
+        </div>
+    </div>
+</div>
+
+
+                 {{!-- {{#if user.local.name}}
                     <p>
-                        <strong>id</strong>: {{user._id}}<br>
-                        <strong>email</strong>:{{user.local.email}} <br>
-                        <strong>password</strong>:{{user.local.password}}
+                        <strong>name</strong>: {{user.local.name }}<br>
+                      
                     </p>
                     <a href="/unlink/local" class="btn btn-default">Unlink</a>
                 {{else}} 
@@ -35,9 +138,7 @@
               
                     {{#if user.facebook.token}}
                     <p>
-                        <strong>id</strong>: {{user.facebook.id}}<br>
-                        <strong>token</strong>: {{user.facebook.token}}<br>
-                        <strong>email</strong>: {{user.facebook.email}}<br>
+                     
                         <strong>name</strong>: {{user.facebook.name}}<br>
                     </p>
 
@@ -59,10 +160,8 @@
                 
                     {{#if user.twitter.token}}
                     <p>
-                        <strong>id</strong>: {{user.twitter.id }}<br>
-                        <strong>token</strong>: {{user.twitter.token }}<br>
                         <strong>display name</strong>: {{user.twitter.displayName }}<br>
-                        <strong>username</strong>: {{user.twitter.username }}
+                       
                     </p>
 
                     <a href="/unlink/twitter" class="btn btn-info">Unlink</a>
@@ -82,9 +181,6 @@
                 
                     {{#if user.google.token}}
                     <p>
-                        <strong>id</strong>: {{user.google.id}}<br>
-                        <strong>token</strong>: {{user.google.token}}<br>
-                        <strong>email</strong>: {{user.google.email}}<br>
                         <strong>name</strong>: {{user.google.name}}</p>
 
                     <a href="/unlink/google" class="btn btn-danger">Unlink</a>
@@ -95,4 +191,4 @@
             </div>
         </div>
    
-</div>
+</div> --}}
