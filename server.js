@@ -20,8 +20,10 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 var routes = require("./controllers/appController.js");
+var userRoutes = require("./controllers/userController.js");
 
-app.use("/", routes);
+app.use("/", routes, userRoutes);
+// app.use("/user", userRoutes);
 
 app.listen(port, function() {
     console.log("Server running on PORT " + port);
