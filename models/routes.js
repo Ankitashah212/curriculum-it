@@ -1,7 +1,12 @@
 var flash    = require('connect-flash');
 // var db = require("../config/db.js");
-module.exports = function(app, passport) {
+var bodyParser   = require('body-parser');
 
+var connection = require("../config/db.js")
+module.exports = function(app, passport) {
+  
+    app.use(bodyParser.json()); // get information from html forms
+    app.use(bodyParser.urlencoded({ extended: true }));
 // normal routes ===============================================================
 
     // show the home page (will also have our login links)
@@ -16,9 +21,16 @@ module.exports = function(app, passport) {
 	// 		user : req.user
 	// }
     // PROFILE SECTION =========================
+    function createLocalUsers(req){
+        // var post  = {userid:req.user.id, name: req.user.local.name  };
+        // var query = connection.query('INSERT INTO users SET ?', post, function (error, results, fields) {
+        //   if (error) throw error;
+          // Neat!
+        // });
+    }
     app.get('/profile', isLoggedIn, function(req, res) {
 			console.log(req.user);
-			console.log(req.isAuthenticated())
+           createLocalUsers(req)
         res.render('profile.handlebars', {
             user : req.user
         });
@@ -61,7 +73,7 @@ module.exports = function(app, passport) {
         // SIGNUP =================================
         // show the signup form
         app.get('/signup', function(req, res) {
-					
+					console.log(req.body.name);
 					if (req.isAuthenticated()){
 						console.log("from sign up" +req.isAuthenticated() );
 						res.redirect('/profile');
@@ -74,7 +86,7 @@ module.exports = function(app, passport) {
             successRedirect : '/profile', // redirect to the secure profile section
             failureRedirect : '/signup', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
-        }));
+        }))
 
     // facebook -------------------------------
 
