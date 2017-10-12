@@ -1,16 +1,16 @@
 // server.js
 // get all the tools we need
-var express  = require('express');
-var app      = express();
-var port     = process.env.PORT || 8080;
+var express = require('express');
+var app = express();
+var port = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var passport = require('passport');
-var flash    = require('connect-flash');
+var flash = require('connect-flash');
 var handlebars = require('handlebars')
-var morgan       = require('morgan');
+var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
-var bodyParser   = require('body-parser');
-var session      = require('express-session');
+var bodyParser = require('body-parser');
+var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 var exphbs = require("express-handlebars");
 var configDB = require('./config/auth.js');
@@ -20,7 +20,7 @@ var helpers = require('handlebars-helpers')();
 var PORT = process.env.PORT || 8080;
 
 // configuration ===============================================================
-mongoose.connect(configDB.url.link, {useMongoClient: true,});// connect to our database
+mongoose.connect(configDB.url.link, { useMongoClient: true, });// connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
 
@@ -36,12 +36,24 @@ app.set("view engine", "handlebars");
 require("dotenv").config();
 
 // required for passport
-var options = {
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database : process.env.DB_NAME
-};
+var options;
+if (process.env.JAWSDB_URL) {
+    //Heroku deployment
+    options = {
+        host: 'mgs0iaapcj3p9srz.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user: 'acmreoz1izkqsmeb',
+        password: 'egwcuuqwei9qumz2',
+        database: 'mlnubmbt2blsu39v'
+    };
+} else {
+    options = {
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME
+    };
+}
+
 
 
 var sessionStore = new MySQLStore(options);
@@ -63,6 +75,6 @@ app.use("/user", userRoutes);
 app.use('/', routes);
 // Listening port ─────────────────────────────────────────────────────────────
 
-app.listen(PORT, function() {
+app.listen(PORT, function () {
     console.log("Server running on PORT " + PORT);
 });
