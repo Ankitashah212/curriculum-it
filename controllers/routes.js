@@ -7,7 +7,8 @@ var connection = require("../config/connection.js");
 const orm = require("../models/users.js")
 
 // normal routes ===============================================================
-
+theVarId = "";
+theVarName = "";
 // show the home page (will also have our login links)
 router.get('/', function (req, res) {
     // console.log(db)
@@ -69,6 +70,8 @@ console.log(req.theVarName);
 
 }
 router.get('/profile', isLoggedIn, function (req, res) {
+
+    createLocalUsers(req, res)
     var allCourses;
     var usersCourses;
     console.log("I'm in profile");
@@ -87,10 +90,10 @@ router.get('/profile', isLoggedIn, function (req, res) {
             courses: allCourses,
             myCourses: data
         }});
+
      } );
     });
 
-    createLocalUsers(req, res)
 });
 
 // LOGOUT s==============================

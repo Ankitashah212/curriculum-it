@@ -54,8 +54,6 @@ if (process.env.JAWSDB_URL) {
     };
 }
 
-
-
 var sessionStore = new MySQLStore(options);
 app.use(session({
     secret: 'aritzahadababyitzagirl', // session secret
