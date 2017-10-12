@@ -74,9 +74,7 @@ router.get('/profile', isLoggedIn, function (req, res) {
     createLocalUsers(req, res)
     var allCourses;
     var usersCourses;
-    console.log("I'm in profile");
-    console.log(req.user.id)
-    
+ 
     orm.allCourse(function(result) {
         allCourses = result;
        // console.log(allCourses[0].name);
@@ -93,6 +91,7 @@ router.get('/profile', isLoggedIn, function (req, res) {
 
      } );
     });
+    
 
 });
 

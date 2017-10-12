@@ -69,11 +69,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 var routes = require("./controllers/routes.js")
 //var userRoutes = require("./controllers/userController.js");
 
-<<<<<<< HEAD
-//app.use("/profile", userRoutes);
-=======
 // app.use("/user", userRoutes);
->>>>>>> bf3aed050e10b0a4185d18360f0c0bca1fae6d07
 app.use('/', routes.dispatch);
 // Listening port ─────────────────────────────────────────────────────────────
 
