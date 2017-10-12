@@ -12,9 +12,9 @@ INSERT INTO course (name, description) values ('javascript','Async BS');
 
 INSERT into users_to_course (userid, courceid) values ('ankita', 2);
 
-INSERT into steps (name, courceid) values ('pointers in C', 2);
-INSERT into steps (name, courceid) values ('STD in and out in C', 2);
-INSERT into steps (name, courceid) values ('loops', 2);
+INSERT into steps (name, courseid) values ('pointers in C', 2);
+INSERT into steps (name, courseid) values ('STD in and out in C', 2);
+INSERT into steps (name, courseid) values ('loops', 2);
 
 
 

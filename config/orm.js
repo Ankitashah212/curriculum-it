@@ -5,7 +5,7 @@ var connection = require("../config/connection.js");
 var orm = {
   myCourses: function (userid, cb) {
     var queryString = "select c.name, c.description from users u, course c, users_to_course s where"
-      + "(u.userid = s.userid) and (c.courceid = s.courceid) and "
+      + "(u.userid = s.userid) and (c.courseid = s.courseid) and "
       + "(s.userid = '" + userid + "')";
       console.log("query is " + queryString);
     connection.query(queryString, function (err, result) {
@@ -18,12 +18,12 @@ var orm = {
     });
   },
   addCourse: function (courseid, userid, cb) {
-    var queryString = "INSERT INTO users_to_course (userid, courceid) values ("
+    var queryString = "INSERT INTO users_to_course (userid, courseid) values ("
     +"'" + userid +"', "+ courseid + ")";
 
     console.log(queryString);
 
-    connection.query(queryString, vals, function (err, result) {
+    connection.query(queryString, function (err, result) {
       if (err) {
         throw err;
       }
@@ -58,7 +58,7 @@ var orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  allCourse: function ( cb) {
+  allCourse: function (cb) {
     var queryString = "select * from course ";
 
     console.log(queryString);

@@ -13,7 +13,7 @@ var user = {
             cb(res);
         });
     },
-    // The variables cols and vals are arrays.
+    // The variables cols and vals are arrays. When user completes course
     updateCourse: function (id, cb) {
         orm.updateCourse(id, function (res) {
             cb(res);
@@ -24,13 +24,13 @@ var user = {
             cb(res);
         });
     },
-    allCourse: function (id, cb) {
-        allCourse.update(function (res) {
+    allCourse: function (cb) {
+        orm.allCourse(function (res) {
             cb(res);
         });
-    },// add to cource and also sign up user for it in controller
-    addToCource: function (name, desc, cb) {
-      addToCource.update(function (res) {
+    },// add to course and also sign up user for it in controller
+    addToCourse: function (name, desc, cb) {
+      addToCourse.update(function (res) {
             cb(res);
         });
     }
@@ -38,6 +38,3 @@ var user = {
 
 // Export the database functions for the controller (snacksController.js).
 module.exports = user;
-
-
-

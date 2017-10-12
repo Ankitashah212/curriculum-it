@@ -1,8 +1,13 @@
+
 var flash = require('connect-flash');
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var connection = require("../config/connection.js");
+var theVarId = "";
+var theVarName = "";
+
+const orm = require("../models/users.js")
 // normal routes ===============================================================
 
 // show the home page (will also have our login links)
@@ -17,8 +22,7 @@ router.get('/', function (req, res) {
 // PROFILE SECTION =========================
 function createLocalUsers(req, res) {
     // TODO: here is where the user is
-    var theVarId = "";
-    var theVarName = "";
+    
 
     if (req.user.google.id != undefined) {
         theVarId = req.user.google.id;
@@ -49,9 +53,16 @@ function createLocalUsers(req, res) {
 
 }
 router.get('/profile', isLoggedIn, function (req, res) {
-    res.render('profile.handlebars', {
-        user: req.user
-    });
+    var allCourses;
+    orm.allCourse(function(result) {
+        allCourses = result;
+        console.log(allCourses);
+     } );
+    res.render('profile.handlebars', {passedData
+        :{
+        user: req.user,
+        courses: allCourses
+    }});
     createLocalUsers(req, res)
 });
 
@@ -238,9 +249,23 @@ router.get('/unlink/google', isLoggedIn, function (req, res) {
         res.redirect('/profile');
     });
 });
+//-------------------------------------------------------------------------------
+
+router.post("/profile/allCourses",isLoggedIn, function(req, res) {
+    console.log("Here");
+      orm.allCourse(function(result) {
+        var allCourses = result;
+        console.log(allCourses);
+        res.redirect("/profile", {courses: allCourses});
+      });
+    
+      //res.redirect("/profile");
+    
+    });
 
 
 
+//-----------------------------------------------------------------------git
 
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
@@ -250,4 +275,13 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
-module.exports = router;
+module.exports = {
+    dispatch:router,
+    logger :isLoggedIn,
+    idThing: theVarId,
+    nameThing : theVarName 
+}
+
+
+
+

@@ -1,83 +1,96 @@
-var express = require("express");
-
-var router = express.Router();
-
-const User = require("../models/users.js");
-
+const express = require("express");
+const router = express.Router();
 
 // Import the model (users.js) to use its database functions.
-//not sure if needed since we have const User, but commenting out just in case
-// var users = require("../models/users.js");
+const orm = require("../models/users.js")
 
-var userid = 'ankita';
+//Hard coded for testing
+var userId = 'ankita';
+
+
+//===========================================
+//----------------ROUTES---------------------
+//===========================================
+
 // Create all our routes and set up logic within those routes where required.
-router.get("/user", function (req, res) {
 
-  //login login if user logged in
-  //show default page
+//====================GET ALL COURSES=================
 
-  //if not then show login page
-  //for now showing default page
-  if (user.length > 0) {
-    res.render("index");
-    // get data from database and show default page
-  } else {
-    // show login page
-  }
-
-});
-
-router.post("/user", function (req, res) {
-  var username = req.body.username;
-  var name = req.body.name;
-  var password = req.body.password;
-  console.log(username + "" + name + "" + password);
-  //if username is in database, then skip below and go to /user route. Else, make new user using code below.
-  return User.create({
-    userid: username,
-    name: name,
-    password: password
+router.get("/profile/allCourses", function(req, res) {
+console.log("Here");
+  orm.allCourse(function(result) {
+    var allCourses = result;
+    console.log(allCourses);
+    //res.render("index2", {allCourses});
   });
+
+  //res.redirect("/profile");
+
 });
+
+//===============GET ALL OF USER'S COURSES============
+
+router.get("/profile/course", function (req, res) {
+
+  //Jose is a liar and will take care of getting the user id
+
+  orm.myCourses(userId, function(result) {
+    
+    var row = JSON.stringify(result);
+    var data = JSON.parse(row);
+
+    courseName = data[0].name;
+    courseDesc = data[0].description;
+    console.log("Course name: " + courseName);
+    console.log("Course description: " + courseDesc);
+    console.log("All data from course: " + data[0]);
+    //res.render("index2", {course: courseName});
+  }); 
+
+  res.redirect("/profile/course");  
+});
+
+//=============ADD COURSES==================
+
+router.post("/profile/course", function (req, res) {
+
+  //Jose taking care of user ID
+  
+  orm.addCourse(1, userId, function(result) {
+    console.log(result);
+  });
+  
+    //res.redirect("/profile");
+
+});
+
+//============GET ALL OF PARTICULAR USER'S COURSES===========
 
 router.get("/user/allCourses/", function (req, res) {
-  var userID = req.params.id;
+  //var userId = req.params.id;
 
+  //***Retrieve user id****/
 
-  //if not then show login page
-  //for now showing default page
-  if (user.length > 0) {
-    res.render("profile");
-    // get data from database and show default page
-  } else {
-    // show login page
-  }
-
-});
-
-router.post("/", function (req, res) {
-  var username = req.body.username;
-  var name = req.body.name;
-  var password = req.body.password;
-  console.log(username + "" + name + "" + password);
-  //if username is in database, then skip below and go to /user route. Else, make new user using code below.
-  return User.create({
-    userid: username,
-    name: name,
-    password: password
+  user.myCourses(userId, function(res) {
+    orm.myCourses(userId, function (res) {
+      cb(res);
+    });
   });
+
 });
 
-router.get("/user/allCourses/", function (req, res) {
-  var userID = req.params.id;
+//=======UPDATE USER'S COURSE=============
 
-//console.log(req.user);
-  User.myCourses("ankita", function (data) {
-    console.log(data);
+orm.updateCourse(1, function() {
+  
+});
+
+/* REFERENCE
+updateCourse: function (id, cb) {
+  orm.updateCourse(id, function (res) {
+      cb(res);
   });
-});
-
+},
+*/
 
 module.exports = router;
-
-
