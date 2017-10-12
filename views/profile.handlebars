@@ -1,8 +1,9 @@
 
 
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1> <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+        {{!-- <h3><span class="fa fa-user"></span> Local</h3> --}}
+        
     </div>
 
     <div class="row">
@@ -10,31 +11,28 @@
         <!-- LOCAL INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
+                <h2>Hello{{#if user}}
+            <ul class="list-reset">
+                {{#if user.local.name}}<li class="username">{{user.local.name}}</li>{{/if}}
+                {{#if user.facebook.token}}<li class="username">{{user.facebook.name}}</li>{{/if}}
+                {{#if user.twitter.token}}<li class="username">{{user.twitter.displayName }}</li>{{/if}}
+                {{#if user.google.token}}<li class="username">{{user.google.name}}</li>{{/if}}
+            </ul>
+            {{else}}
+                 No address given
+            {{/if}}
+        </h2>
+            </div>
+        </div>
+    </div>
 
-
-
-
-
-</div>
-
-<h2>Hello{{#if user}}
-    <ul>
-        {{#if user.local.name}}<li>{{user.local.name}}</li>{{/if}}
-        {{#if user.facebook.token}}<li>{{user.facebook.name}}</li>{{/if}}
-          {{#if user.twitter.token}}<li>{{user.twitter.displayName }}</li>{{/if}}
-          {{#if user.google.token}}<li>{{user.google.name}}</li>{{/if}}
-    </ul>
-{{else}}
-   No address given
-{{/if}}</h2>
 {{!-- navbar for top of the page to link to the homepage, the sign up form and the onoging course tracking page --}}
 <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" href="#">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Sign Up</a>
+    <a class="nav-link" href="#">Enroll</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="#">Track Your Progress</a>
@@ -48,18 +46,21 @@
                 <p class="h3">Pre-selcted Courses</p>
                 <br>
                 <select class="class-selection">
-                    <option class="selections"><p class="options">Hamburger 1</p></option>
-                    <option class="selections"><p class="options">Hamburger 2</p></option>
-                    <option class="selections"><p class="options">Hamburger 3</p></option>
-                    <option class="selections"><p class="options">Hamburger 4</p></option>
+                    <option class="selections"><p class="options">Course 1</p></option>
+                    <option class="selections"><p class="options">Course 2</p></option>
+                    <option class="selections"><p class="options">Course 3</p></option>
+                    <option class="selections"><p class="options">Course 4</p></option>
                 </select>
         </div>
 {{!-- form to create own course --}}
         <div class="col">
-            <form id="create" action="/">
+            <form id="create" action="/" method="post">
             <p class="h3">Create Your Own Course</p>
+            <label class="label">Course Name</label>
             <input type="text" class="input"/>
-            </label>
+            <br>
+            <label class="label" id="second-label">Description</label>
+            <textarea class="textarea" rows="3"></textarea>
             <br><br>
             <input type="button" class="btn" id="submit" value="Submit">
         </form>
@@ -78,7 +79,7 @@
 </div>
 <br>
 {{!-- content linked to the track your progress button, will be hidden until the link is clicked in the navbar --}}
-<div class="container">
+<div class="container2">
     <div class="course-list">
         <div class="row">
             <div class="col">
@@ -101,17 +102,17 @@
             </div> 
             <div class="col">
                 <div class="form-check">
-                    <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                    <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                    <input class="form-check-input" type="checkbox" id="blankCheckbox" value="option1" aria-label="...">
-                    </label>
+                    <input type="button" class="btn" id="pending" value="Completed">
                 </div>    
             </div>  
             <div class="col">
                 <input type="button" class="btn" id="delete" value="Delete">
             </div>                     
         </div>
+    </div>
+    <br>
+    <div class="completed-list">
+        <h3 class="mt1">Completed Courses</h3>
     </div>
 </div>
 
@@ -125,15 +126,12 @@
                 {{else}} 
                     <a href="/connect/local" class="btn btn-default">Connect Local</a>
                 {{/if}}
-
             </div>
         </div>
-
         <!-- FACEBOOK INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
                 <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
-
                 <!-- check if the user has this token (is the user authenticated with this social account) -->
               
                     {{#if user.facebook.token}}
@@ -141,53 +139,43 @@
                      
                         <strong>name</strong>: {{user.facebook.name}}<br>
                     </p>
-
                     <a href="/unlink/facebook" class="btn btn-primary">Unlink</a>
                     {{else}} 
                     <a href="/connect/facebook" class="btn btn-primary">Connect Facebook</a>
                     {{/if}}
-
             </div>
         </div>
     </div>
     <div class="row">
-
         <!-- TWITTER INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
                 <h3 class="text-info"><span class="fa fa-twitter"></span> Twitter</h3>
-
                 
                     {{#if user.twitter.token}}
                     <p>
                         <strong>display name</strong>: {{user.twitter.displayName }}<br>
                        
                     </p>
-
                     <a href="/unlink/twitter" class="btn btn-info">Unlink</a>
                 
                     {{else}}
                     <a href="/connect/twitter" class="btn btn-info">Connect Twitter</a>
                 {{/if}}
-
             </div>
         </div>
-
         <!-- GOOGLE INFORMATION -->
         <div class="col-sm-6">
             <div class="well">
                 <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+</h3>
-
                 
                     {{#if user.google.token}}
                     <p>
                         <strong>name</strong>: {{user.google.name}}</p>
-
                     <a href="/unlink/google" class="btn btn-danger">Unlink</a>
                     {{else}}
                     <a href="/connect/google" class="btn btn-danger">Connect Google</a>
                     {{/if}}
-
             </div>
         </div>
    
