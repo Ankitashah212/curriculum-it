@@ -23,12 +23,12 @@
         <!-- LOCAL INFORMATION -->
         {{!-- <div class="col-sm-6"> --}}
     <div class="well">
-        <h2 class="center">Hello{{#if user}}
+        <h2 class="center">Hello{{#if passedData.user}}
         <ul class="list-reset">
-            {{#if user.local.name}}<li class="username">{{user.local.name}}</li>{{/if}}
-            {{#if user.facebook.token}}<li class="username">{{user.facebook.name}}</li>{{/if}}
-            {{#if user.twitter.token}}<li class="username">{{user.twitter.displayName }}</li>{{/if}}
-            {{#if user.google.token}}<li class="username">{{user.google.name}}</li>{{/if}}
+            {{#if passedData.user.local.name}}<li class="username">{{passedData.user.local.name}}</li>{{/if}}
+            {{#if passedData.user.facebook.token}}<li class="username">{{passedData.user.facebook.name}}</li>{{/if}}
+            {{#if passedData.user.twitter.token}}<li class="username">{{passedData.user.twitter.displayName }}</li>{{/if}}
+            {{#if passedData.user.google.token}}<li class="username">{{passedData.user.google.name}}</li>{{/if}}
         </ul>
             {{else}}
                  No address given
@@ -57,11 +57,16 @@
         <div class="col" id="dropdown">
                 <p class="h3">Click to Enroll in Course</p>
                 <br>
-                {{!-- {{#each course}} --}}
-                <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 1</button>
-                <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 2</button>
+
+                {{#each passedData.courses}}
+                    <p>Hello world</p>
+                {{/each}}
+                {{!-- {{#each passedData.courses}}
+                <button type="button" class="btn btn-narrow mb1" class="class-btn">Course</button>
+                {{/each}} --}}
+                {{!-- <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 2</button>
                 <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 3</button>
-                <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 4</button>
+                <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 4</button> --}}
                 {{!-- {{/each}} --}}
                 {{!-- <select class="class-selection">
                     {{#each course}}

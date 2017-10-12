@@ -6,7 +6,8 @@ const orm = require("../models/users.js")
 
 //Hard coded for testing
 var userId = 'ankita';
-
+var getUser = require('./routes.js');
+// console.log(getUser.logger[0])
 
 //===========================================
 //----------------ROUTES---------------------

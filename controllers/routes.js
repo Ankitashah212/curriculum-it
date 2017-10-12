@@ -4,9 +4,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var connection = require("../config/connection.js");
-var theVarId = "";
-var theVarName = "";
-
+const orm = require("../models/users.js")
 
 // normal routes ===============================================================
 
@@ -22,21 +20,39 @@ router.get('/', function (req, res) {
 // PROFILE SECTION =========================
 function createLocalUsers(req, res) {
     // TODO: here is where the user is
-    
+    var theVarId = "";
+    var theVarName = "";
 
     if (req.user.google.id != undefined) {
         theVarId = req.user.google.id;
         theVarName = req.user.google.name;
+        req.theVarId = req.user.google.id;
+        req.theVarName = req.user.google.name;
     } else if (req.user.facebook.id != undefined) {
         theVarId = req.user.facebook.id;
         theVarName = req.user.facebook.name;
+        req.theVarId = req.user.facebook.id;
+        req.theVarName = req.user.facebook.name;
     } else if (req.user.twitter.id != undefined) {
         theVarId = req.user.twitter.id;
         theVarName = req.user.twitter.displayName;
+        req.theVarId = req.user.twitter.id;
+        req.theVarName = req.user.twitter.displayName;
     } else if (req.user.id != undefined) {
         theVarId = req.user.id;
-        theVarName = req.user.local.name
+        theVarName = req.user.local.name;
+        req.theVarId = req.user.id;
+        req.theVarName = req.user.local.name
     }
+
+    // var returnId = function (theVarId){
+    //     return global.theVarId;
+    // }
+
+    // var returnName = function (theVarName){
+    //     return global.theVarName;
+    // }
+console.log(req.theVarName);
 
     connection.query('SELECT * FROM users WHERE userid = ?', [theVarId], function (error, results, fields) {
         if (error) throw error;
@@ -53,13 +69,23 @@ function createLocalUsers(req, res) {
 
 }
 router.get('/profile', isLoggedIn, function (req, res) {
-    res.render('profile.handlebars', {
-        user: req.user
-    });
+    var allCourses;
+    console.log("I'm in profile");
+    orm.allCourse(function(result) {
+        allCourses = result;
+        console.log(allCourses[0].name);
+        res.render('profile.handlebars', {passedData
+            :{
+            user: req.user,
+            courses: allCourses
+        }});
+     } );
+   
+
     createLocalUsers(req, res)
 });
 
-// LOGOUT ==============================
+// LOGOUT s==============================
 router.get('/logout', function (req, res) {
     req.logout();
     req.session.destroy();
@@ -254,8 +280,6 @@ function isLoggedIn(req, res, next) {
 module.exports = {
     dispatch:router,
     logger :isLoggedIn,
-    idThing: theVarId,
-    nameThing : theVarName 
 }
 
 
