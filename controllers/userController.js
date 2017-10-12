@@ -31,7 +31,7 @@ router.get("/allCourses", function(req, res) {
 
 //===============GET ALL OF USER'S COURSES============
 
-router.get("/profile/course", function (req, res) {
+router.get("/profile/addcourse", function (req, res) {
 
   //Jose is a liar and will take care of getting the user id
 
