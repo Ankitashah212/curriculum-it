@@ -16,6 +16,13 @@ CREATE TABLE course(
   PRIMARY KEY (courseid)
 );
 
+CREATE TABLE `sessions` (
+  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `expires` int(11) unsigned NOT NULL,
+  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  PRIMARY KEY (`session_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 CREATE TABLE users_to_course(
   signups INTEGER(11) AUTO_INCREMENT NOT NULL,
@@ -27,8 +34,6 @@ CREATE TABLE users_to_course(
   CONSTRAINT fk_users FOREIGN KEY (userid) REFERENCES users(userid)
 );
 
-
-
 CREATE TABLE steps(
   id INTEGER(11) AUTO_INCREMENT NOT NULL,
   name VARCHAR(50),
@@ -37,4 +42,11 @@ CREATE TABLE steps(
 CONSTRAINT fk_id_course FOREIGN KEY (courseid) REFERENCES course(courseid)
 );
 
-select u.name, c.name, uc.inprogress from users u, cource c, users_to_cource uc where (uc.userid = u.userid) and (uc.courceid = c.courceid);
+CREATE TABLE `sessions` (
+  `session_id` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `expires` int(11) unsigned NOT NULL,
+  `data` text CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
+  PRIMARY KEY (`session_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+select u.name, c.name, uc.inprogress from users u, course c, users_to_course uc where (uc.userid = u.userid) and (uc.courseid = c.courseid);

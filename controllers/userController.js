@@ -6,7 +6,8 @@ const orm = require("../models/users.js")
 
 //Hard coded for testing
 var userId = 'ankita';
-
+var getUser = require('./routes.js');
+// console.log(getUser.logger[0])
 
 //===========================================
 //----------------ROUTES---------------------
@@ -30,7 +31,7 @@ console.log("Here");
 
 //===============GET ALL OF USER'S COURSES============
 
-router.get("/profile/course", function (req, res) {
+router.get("/profile/addcourse", function (req, res) {
 
   //Jose is a liar and will take care of getting the user id
 
