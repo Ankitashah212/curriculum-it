@@ -59,9 +59,8 @@
                 
                 {{#each passedData.courses}}
                      <form id="create" action="/profile/enroll/{{courseid}}" method="post">
-                        <input type="hidden" class="input" id="enrollCourse" value="{{courseid}}">  
-                        <input type="hidden" class="input" id="enrollCourse1" value="{{passedData.user.local.id}}">  
-                        <button type="submit" class="btn btn-narrow mb1" class="class-btn" class="enroll">{{name}}</button>
+                       <input type="hidden" class="input" id="enrollCourse1" name="enrollCourse1" value="{{passedData.user.local.id}}">  
+                        <button type="submit" class="btn btn-narrow mb1" class="class-btn" class="enroll" id="enroll">{{name}}</button>
                     </form>
                 {{/each}}
                 {{!-- {{#each passedData.courses}}
