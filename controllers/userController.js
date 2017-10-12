@@ -71,7 +71,7 @@ router.post("/", function (req, res) {
 router.get("/user/allCourses/", function (req, res) {
   var userID = req.params.id;
 
-
+//console.log(req.user);
   User.myCourses("ankita", function (data) {
     console.log(data);
   });
