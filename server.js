@@ -43,6 +43,7 @@ var options = {
     database : process.env.DB_NAME
 };
 
+
 var sessionStore = new MySQLStore(options);
 app.use(session({
     secret: 'aritzahadababyitzagirl', // session secret
@@ -60,6 +61,7 @@ var userRoutes = require("./controllers/userController.js");
 
 app.use("/user", userRoutes);
 app.use('/', routes);
+// Listening port ─────────────────────────────────────────────────────────────
 
 app.listen(PORT, function() {
     console.log("Server running on PORT " + PORT);
