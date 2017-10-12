@@ -1,4 +1,4 @@
-# curriculum-it
+# Curriculum-It
 
 Curriculum-It is a task planner app specifically designed for self-learners. 
 
