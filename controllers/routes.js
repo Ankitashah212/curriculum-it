@@ -73,7 +73,7 @@ router.get('/profile', isLoggedIn, function (req, res) {
     console.log("I'm in profile");
     orm.allCourse(function(result) {
         allCourses = result;
-        console.log(allCourses[0].name);
+       // console.log(allCourses[0].name);
         res.render('profile.handlebars', {passedData
             :{
             user: req.user,
