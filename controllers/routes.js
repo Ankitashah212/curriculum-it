@@ -295,8 +295,8 @@ router.post("/profile/addcourse", function (req, res) {
     var id = req.params.id;
     console.log(id)
 
-    // orm.addToCourse(req.body.courseName, req.body.description, function(result) {
-    //   res.redirect("/profile");
+    orm.addToCourse(req.body.courseName, req.body.description, function(result) {
+      res.redirect("/profile");
      });
 //  });
 

@@ -14,6 +14,7 @@ $(document).ready(function() {
   })
 
   $("#track").on("click", function(event){
+    console.log("clicked!")
     $(".container2").show();
     $(".classes").hide();
     $(".well").hide();
