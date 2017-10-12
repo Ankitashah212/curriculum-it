@@ -4,9 +4,9 @@ body{
 h2, h3{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-/* .username{
+.list-reset{
   
-} */
+}
 .nav-tabs{
   background-color: #7FD3EC;
   border-bottom: 1px solid black;
@@ -15,6 +15,9 @@ h2, h3{
   color: #050505;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+/* #logout{
+  float: right;
+} */
 #dropdown{
   background-color: #DBF3FA;
   padding: 10px;
