@@ -4,6 +4,10 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var connection = require("../config/connection.js");
+var theVarId = "";
+var theVarName = "";
+
+
 // normal routes ===============================================================
 
 // show the home page (will also have our login links)
@@ -18,8 +22,7 @@ router.get('/', function (req, res) {
 // PROFILE SECTION =========================
 function createLocalUsers(req, res) {
     // TODO: here is where the user is
-    var theVarId = "";
-    var theVarName = "";
+    
 
     if (req.user.google.id != undefined) {
         theVarId = req.user.google.id;
@@ -240,9 +243,6 @@ router.get('/unlink/google', isLoggedIn, function (req, res) {
     });
 });
 
-
-
-
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
@@ -251,4 +251,13 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
-module.exports = router;
+module.exports = {
+    dispatch:router,
+    logger :isLoggedIn,
+    idThing: theVarId,
+    nameThing : theVarName 
+}
+
+
+
+

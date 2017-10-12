@@ -72,7 +72,7 @@ var routes = require("./controllers/routes.js")
 var userRoutes = require("./controllers/userController.js");
 
 app.use("/user", userRoutes);
-app.use('/', routes);
+app.use('/', routes.dispatch);
 // Listening port ─────────────────────────────────────────────────────────────
 
 app.listen(PORT, function () {
