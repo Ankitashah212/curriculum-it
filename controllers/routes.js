@@ -82,7 +82,7 @@ router.get('/profile', isLoggedIn, function (req, res) {
             user: req.user,
             courses: allCourses
         }});
-     } );
+     });
    
 
 });
