@@ -8,7 +8,10 @@ $(document).ready(function() {
     $(".container1").show();
     $(".classes").show();
     $(".well").hide();
-
+    var currentURL = window.location.origin;
+    $.get(currentURL + "/profile/allCourses", function(data){
+      console.log(data);
+    })
   })
 
   $("#track").on("click", function(event){
