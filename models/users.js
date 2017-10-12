@@ -30,7 +30,7 @@ var user = {
         });
     },// add to course and also sign up user for it in controller
     addToCourse: function (name, desc, cb) {
-      addToCourse.update(function (res) {
+      orm.addToCourse(name, desc, function (res) {
             cb(res);
         });
     }

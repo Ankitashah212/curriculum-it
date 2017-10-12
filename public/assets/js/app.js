@@ -9,8 +9,7 @@ $(document).ready(function() {
     $(".classes").show();
     $(".well").hide();
     var currentURL = window.location.origin;
-    $.get(currentURL + "/profile/allCourses", function(data){
-      console.log(data);
+    "description"
     })
   })
 
@@ -28,6 +27,25 @@ $(document).ready(function() {
     $(".container1").hide();
   })
 
+  $("#submit").on("click", function(event){
+    console.log("I'm here!");
+   var courseName = $("#courseName").val();
+    console.log(courseName);
+    var description = $("#description").val();
+    console.log(description);
+    var newCourseInfo = {
+      name: coursename,
+      description: description
+    }
+    $.post(currentURL + "/profile/addcourse", newCourseInfo, function (data) {
+      
+                  window.location.reload();
+    
+    })
+  })
+
+
+  
   // $(".change-sleep").on("click", function(event) {
   //   var id = $(this).data("id");
   //   var newSleep = $(this).data("newsleep");
@@ -70,4 +88,4 @@ $(document).ready(function() {
   //     }
   //   );
   // });
-});
+// });

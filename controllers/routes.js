@@ -277,6 +277,18 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
+router.post("/profile/addcourse", function (req, res) {
+    console.log("I'm here");
+    console.log(req.body)
+
+    orm.addToCourse(req.body.courseName, req.body.description, function(result) {
+      res.redirect("/profile");
+    
+     } );
+
+   
+    });
+
 module.exports = {
     dispatch:router,
     logger :isLoggedIn,

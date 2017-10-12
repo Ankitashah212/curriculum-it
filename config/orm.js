@@ -70,7 +70,7 @@ var orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  addToCource: function (name, desc, cb) {
+  addToCourse: function (name, desc, cb) {
     var queryString = "insert into course (name, description) value ('"+ name +"', '" + desc +"');";
 
     console.log(queryString);
