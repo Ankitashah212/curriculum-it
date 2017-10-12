@@ -11,12 +11,21 @@
         {{!-- <li class="nav-item">
             <a class="nav-link" id= "enroll" href="/profile/allCourses">Enroll</a>
         </li> --}}
-        <li class="nav-item">
+        {{!-- <li class="nav-item">
             <a class="nav-link" id="track" href="#">Track Your Progress</a>
-        </li>
+        </li> --}}
         <li class="nav-item">
             <a href="/logout" class="nav-link" id="logout">Logout</a>
         </li>
+        <p class="ml4" class="h4">Hello{{#if passedData.user}} 
+            {{#if passedData.user.local.name}} {{passedData.user.local.name}} {{/if}}
+            {{#if passedData.user.facebook.token}} {{passedData.user.facebook.name}} {{/if}}
+            {{#if passedData.user.twitter.token}} {{passedData.user.twitter.displayName }} {{/if}}
+            {{#if passedData.user.google.token}} {{passedData.user.google.name}} {{/if}}
+            {{else}}
+                 No address given
+            {{/if}}
+        </p>
     </ul>
     <br>
     {{!-- <div class="row"> --}}
@@ -24,7 +33,7 @@
         <!-- LOCAL INFORMATION -->
         {{!-- <div class="col-sm-6"> --}}
     <div class="well">
-        <h2 class="center">Hello{{#if passedData.user}}
+        {{!-- <h2 class="center">Hello{{#if passedData.user}}
         <ul class="list-reset">
             {{#if passedData.user.local.name}}<li class="username">{{passedData.user.local.name}}</li>{{/if}}
             {{#if passedData.user.facebook.token}}<li class="username">{{passedData.user.facebook.name}}</li>{{/if}}
@@ -34,7 +43,7 @@
             {{else}}
                  No address given
             {{/if}}
-        </h2>
+        </h2> --}}
             </div>
         {{!-- </div> --}}
     {{!-- </div> --}}
@@ -103,7 +112,7 @@
             </div> 
             <div class="col">
                 <div class="form-check">
-                    {{#if passedData.courses}}
+                    {{#if passedData.myCourses}}
                     <button type="button" class="btn mb1" id="complete">Complete</button>
                     {{else}}
                         No Current Courses
@@ -112,7 +121,7 @@
                 </div>    
             </div>  
             <div class="col">
-                {{#if passedData.courses}}
+                {{#if passedData.myCourses}}
                 <button type="button" class="btn mb1" id="delete">Delete</button>
                 {{else}}
                     No Courses to Delete
