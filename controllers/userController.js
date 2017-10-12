@@ -11,7 +11,7 @@ const User = require("../models/users.js");
 
 var userid = 'ankita';
 // Create all our routes and set up logic within those routes where required.
-router.get("/", function (req, res) {
+router.get("/user", function (req, res) {
 
   //login login if user logged in
   //show default page
@@ -27,7 +27,7 @@ router.get("/", function (req, res) {
 
 });
 
-router.post("/", function (req, res) {
+router.post("/user", function (req, res) {
   var username = req.body.username;
   var name = req.body.name;
   var password = req.body.password;
