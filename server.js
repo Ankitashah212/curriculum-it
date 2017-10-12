@@ -1,7 +1,4 @@
-
 // server.js
-
-
 // get all the tools we need
 var express  = require('express');
 var app      = express();
@@ -16,16 +13,14 @@ var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 var exphbs = require("express-handlebars");
-var configDB = require('./config/database.js');
+var configDB = require('./config/auth.js');
 var path = require('path');
 var helpers = require('handlebars-helpers')();
 
-
 var PORT = process.env.PORT || 8080;
 
-
 // configuration ===============================================================
-mongoose.connect(configDB.url); // connect to our database
+mongoose.connect(configDB.url.link, {useMongoClient: true,});// connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
 
@@ -60,18 +55,11 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
-
-// Import routes and give the server access to them.
-// var routes = require("./controllers/appController.js");
-
-// app.use("/", routes);
-require('./models/routes.js')(app, passport); 
-// load our routes and pass in our app and fully configured passport
-
+var routes = require("./controllers/routes.js")
 var userRoutes = require("./controllers/userController.js");
 
-app.use("/", userRoutes);
-// app.use("/user", userRoutes);
+app.use("/user", userRoutes);
+app.use('/', routes);
 
 app.listen(PORT, function() {
     console.log("Server running on PORT " + PORT);

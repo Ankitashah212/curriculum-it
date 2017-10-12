@@ -21,6 +21,8 @@ module.exports = {
         'clientID'         : '979961913374-mcqvdu0dqhmear4r01mbmjgcecuugnm8.apps.googleusercontent.com',
         'clientSecret'     : 'PZftah_shr6ZNe5k-aC-y0eK',
         'callbackURL'      : 'http://localhost:8080/auth/google/callback'
+    },
+    
+    'url' : {"link": "mongodb://josetest:Trinity3@ds149144.mlab.com:49144/nodelogindb"
     }
-
 };
