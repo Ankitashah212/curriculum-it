@@ -28,22 +28,28 @@ $(document).ready(function() {
   })
 
   $("#submit").on("click", function(event){
-    console.log("I'm here!");
-   var courseName = $("#courseName").val();
-    console.log(courseName);
+    var courseName = $("#courseName").val();
     var description = $("#description").val();
-    console.log(description);
     var newCourseInfo = {
       name: coursename,
       description: description
     }
     $.post(currentURL + "/profile/addcourse", newCourseInfo, function (data) {
-      
-                  window.location.reload();
-    
+       window.location.reload();
     })
   })
 
+  // $("#enroll").on("click", function(event){
+  //   var courseName = $("#courseName").val();
+  //   var description = $("#description").val();
+  //   var newCourseInfo = {
+  //     name: coursename,
+  //     description: description
+  //   }
+  //   $.post(currentURL + "/profile/addcourse", newCourseInfo, function (data) {
+  //      window.location.reload();
+  //   })
+  // })
 
   
   // $(".change-sleep").on("click", function(event) {
