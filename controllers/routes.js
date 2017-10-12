@@ -71,17 +71,25 @@ console.log(req.theVarName);
 }
 router.get('/profile', isLoggedIn, function (req, res) {
     var allCourses;
+    var usersCourses;
     console.log("I'm in profile");
+    console.log(req.user.id)
+    
     orm.allCourse(function(result) {
         allCourses = result;
        // console.log(allCourses[0].name);
+        orm.myCourses(req.user.id , function(data){
+            console.log("I'm in data");
+            console.log(data);
+       
         res.render('profile.handlebars', {passedData
             :{
             user: req.user,
-            courses: allCourses
+            courses: allCourses,
+            myCourses: data
         }});
      } );
-   
+    });
 
     createLocalUsers(req, res)
 });

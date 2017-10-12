@@ -4,8 +4,8 @@ body{
 h2, h3{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-/* .list-reset{
-  
+/* #greeting{
+  text-align: right;
 } */
 .nav-tabs{
   background-color: #7FD3EC;
