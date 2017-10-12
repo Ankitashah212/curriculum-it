@@ -70,6 +70,8 @@ console.log(req.theVarName);
 
 }
 router.get('/profile', isLoggedIn, function (req, res) {
+
+    createLocalUsers(req, res)
     var allCourses;
     console.log("I'm in profile");
     orm.allCourse(function(result) {
@@ -83,7 +85,6 @@ router.get('/profile', isLoggedIn, function (req, res) {
      } );
    
 
-    createLocalUsers(req, res)
 });
 
 // LOGOUT s==============================
