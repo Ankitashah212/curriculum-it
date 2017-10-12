@@ -56,12 +56,13 @@
         <div class="col" id="dropdown">
                 <p class="h3">Click to Enroll in Course</p>
                 <br>
+                
                 {{#each passedData.courses}}
-                <form id="create" action="/profile/enroll/{{courseid}}" method="post">
-                        <input type="hidden" class="input" id="enrollCourse" value="{{courseid}}">
-                        <input type="hidden" class="input" id="enrollCourse1" value="{{passedData.user.local.id}}">
-                        <button type="button" class="btn btn-narrow mb1" class="class-btn">{{name}}</button>
-                </form>
+                     <form id="create" action="/profile/enroll/{{courseid}}" method="post">
+                        <input type="hidden" class="input" id="enrollCourse" value="{{courseid}}">  
+                        <input type="hidden" class="input" id="enrollCourse1" value="{{passedData.user.local.id}}">  
+                        <button type="submit" class="btn btn-narrow mb1" class="class-btn" class="enroll">{{name}}</button>
+                    </form>
                 {{/each}}
                 {{!-- {{#each passedData.courses}}
                 <button type="button" class="btn btn-narrow mb1" class="class-btn">Course</button>

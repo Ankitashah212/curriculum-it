@@ -7,8 +7,7 @@ var connection = require("../config/connection.js");
 const orm = require("../models/users.js")
 
 // normal routes ===============================================================
-theVarId = "";
-theVarName = "";
+
 // show the home page (will also have our login links)
 router.get('/', function (req, res) {
     // console.log(db)
@@ -70,29 +69,21 @@ console.log(req.theVarName);
 
 }
 router.get('/profile', isLoggedIn, function (req, res) {
-
-    createLocalUsers(req, res)
     var allCourses;
     var usersCourses;
  
     orm.allCourse(function(result) {
         allCourses = result;
        // console.log(allCourses[0].name);
-        orm.myCourses(req.user.id , function(data){
-            console.log("I'm in data");
-            console.log(data);
-       
         res.render('profile.handlebars', {passedData
             :{
             user: req.user,
-            courses: allCourses,
-            myCourses: data
+            courses: allCourses
         }});
-
      } );
-    });
-    
+   
 
+    createLocalUsers(req, res)
 });
 
 // LOGOUT s==============================
@@ -304,17 +295,29 @@ function isLoggedIn(req, res, next) {
     res.redirect('/');
 }
 
+// =============================================================================
+// PROFILE PAGE ROUTES==========================================================
+// =============================================================================
+
 router.post("/profile/addcourse", function (req, res) {
     console.log("I'm here");
     console.log(req.body)
 
     orm.addToCourse(req.body.courseName, req.body.description, function(result) {
       res.redirect("/profile");
-    
-     } );
+     });
+ });
 
-   
-    });
+ router.post("/profile/enroll/:id", function (req, res) {
+    console.log("I'm here at profile/enroll");
+    var id = req.params.id;
+    console.log(id)
+
+    orm.addToCourse(req.body.courseName, req.body.description, function(result) {
+      res.redirect("/profile");
+     });
+  });
+
 
 module.exports = {
     dispatch:router,
