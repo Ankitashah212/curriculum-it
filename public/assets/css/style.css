@@ -4,6 +4,9 @@ body{
 h2, h3{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+/* .username{
+  
+} */
 .nav-tabs{
   background-color: #7FD3EC;
   border-bottom: 1px solid black;
@@ -13,7 +16,7 @@ h2, h3{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #dropdown{
-  background-color: #CEECF5;
+  background-color: #DBF3FA;
   padding: 10px;
 }
 .class-selection{
@@ -23,11 +26,14 @@ h2, h3{
   margin-left: 35%;
 }
 form{
-  background-color: #CEECF5;
+  background-color: #DBF3FA;
   padding: 10px;
 }
 .input{
-  margin-left: 33%;; 
+  margin-left: 13%;; 
+}
+.textarea{
+  margin-left: 16%;
 }
 .btn{
   background-color: #7FD3EC;
@@ -45,11 +51,16 @@ form{
 }
 .course-list{
   text-align: center;
-  background-color: #CEECF5;
+  background-color: #DBF3FA;
 }
 .classes{
-  background-color: #CEECF5;
+  background-color: #DBF3FA;
   padding: 10px;
   margin-left: 20%;
   margin-right: 20%;
+}
+.completed-list{
+  text-align: center;
+  background-color: #DBF3FA;
+  padding: 10px;
 }
