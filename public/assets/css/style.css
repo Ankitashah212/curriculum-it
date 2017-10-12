@@ -4,9 +4,9 @@ body{
 h2, h3{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.list-reset{
+/* .list-reset{
   
-}
+} */
 .nav-tabs{
   background-color: #7FD3EC;
   border-bottom: 1px solid black;

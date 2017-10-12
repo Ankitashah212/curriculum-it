@@ -1,8 +1,8 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(document).ready(function() {
-  $(".container1").hide();
-  $(".classes").hide();
-  $(".container2").hide();
+  // $(".container1").hide();
+  // $(".classes").hide();
+  // $(".container2").hide();
   
   $("#enroll").on("click", function(event){
     $(".container1").show();

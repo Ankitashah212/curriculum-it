@@ -5,10 +5,10 @@
     <br>
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" href="#" id="home">Home</a>
+            <a class="nav-link active" href="/profile" id="home">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id= "enroll" href="#">Enroll</a>
+            <a class="nav-link" id= "enroll" href="/profile/course">Enroll</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="track" href="#">Track Your Progress</a>
@@ -58,15 +58,17 @@
                 <p class="h3">Pre-selcted Courses</p>
                 <br>
                 <select class="class-selection">
-                    <option class="selections"><p class="options">Course 1</p></option>
-                    <option class="selections"><p class="options">Course 2</p></option>
-                    <option class="selections"><p class="options">Course 3</p></option>
-                    <option class="selections"><p class="options">Course 4</p></option>
+                    {{#each course}}
+                    <option class="selections"><p class="options">{{this.name}}</p></option>
+                    {{!-- <option class="selections"><p class="options">{{this.name}}</p></option>
+                    <option class="selections"><p class="options">{{this.name}}</p></option>
+                    <option class="selections"><p class="options">{{this.name}}</p></option> --}}
+                    {{/each}}
                 </select>
         </div>
 {{!-- form to create own course --}}
         <div class="col">
-            <form id="create" action="/" method="post">
+            <form id="create" action="/profile/course" method="post">
             <p class="h3">Create Your Own Course</p>
             <label class="label">Course Name</label>
             <input type="text" class="input"/>
