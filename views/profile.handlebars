@@ -3,6 +3,7 @@
         {{!-- <h3><span class="fa fa-user"></span> Local</h3> --}}  
     </div>
     <br>
+    {{!-- navbar for top of the page to link to the homepage, the sign up form and the onoging course tracking page --}}
     <ul class="nav nav-tabs">
         <li class="nav-item">
             <a class="nav-link active" href="/profile" id="home">Home</a>
@@ -37,21 +38,8 @@
             </div>
         {{!-- </div> --}}
     {{!-- </div> --}}
-
-{{!-- navbar for top of the page to link to the homepage, the sign up form and the onoging course tracking page --}}
-{{!-- <ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Enroll</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Track Your Progress</a>
-  </li>
-</ul> --}}
 <br>
-{{!-- dropdown to select pre-written course names --}}
+{{!-- buttons to select course names --}}
 <div class="container1">
     <div class="row">
         <div class="col" id="dropdown">
@@ -93,16 +81,7 @@
     </div>
 </div>
 <br>
-{{!-- list the current courses linked to your account --}}
-{{!-- <div class="classes"> 
-    <p class="h3">List of Courses in Progress</p>
-    <ul>
-       {{#each course}}
-       <li>{{this.name}}</li>
-       {{/each}}
-    </ul>
-</div>
-<br> --}}
+
 {{!-- content linked to the track your progress button, will be hidden until the link is clicked in the navbar --}}
 <div class="container2">
     <div class="course-list">
@@ -128,7 +107,7 @@
             <div class="col">
                 <div class="form-check">
                     {{#if course.name}}
-                    <button type="button" class="btn mb1">Complete</button>
+                    <button type="button" class="btn mb1" id="complete">Complete</button>
                     {{else}}
                         No Current Courses
                     {{/if}}
@@ -137,7 +116,7 @@
             </div>  
             <div class="col">
                 {{#if course.name}}
-                <button type="button" class="btn mb1">Delete</button>
+                <button type="button" class="btn mb1" id="delete">Delete</button>
                 {{else}}
                     No Courses to Delete
                 {{/if}}

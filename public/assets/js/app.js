@@ -27,7 +27,7 @@ $(document).ready(function() {
     $(".container1").show();
   })
 
-  // $(".change-sleep").on("click", function(event) {
+  // $("#complete").on("click", function(event) {
   //   var id = $(this).data("id");
   //   var newSleep = $(this).data("newsleep");
 
@@ -35,8 +35,8 @@ $(document).ready(function() {
   //     sleepy: newSleep
   //   };
 
-  //   // Send the PUT request.
-  //   $.ajax("/api/cats/" + id, {
+  // //   // Send the PUT request.
+  //   $.ajax("/profile/" + id, {
   //     type: "PUT",
   //     data: newSleepState
   //   }).then(
