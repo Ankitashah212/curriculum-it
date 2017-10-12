@@ -1,33 +1,45 @@
-
-
     <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1> <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-        {{!-- <h3><span class="fa fa-user"></span> Local</h3> --}}
-        
+        <h1><i class="fa fa-book" aria-hidden="true"></i> Welcome to Curriculum-It!</h1>
+        {{!-- <h3><span class="fa fa-user"></span> Local</h3> --}}  
     </div>
-
-    <div class="row">
+    <br>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/profile" id="home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id= "enroll" href="/profile/allCourses">Enroll</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="track" href="#">Track Your Progress</a>
+        </li>
+        <li class="nav-item">
+            <a href="/logout" class="nav-link" id="logout">Logout</a>
+        </li>
+    </ul>
+    <br>
+    {{!-- <div class="row"> --}}
 
         <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h2>Hello{{#if user}}
-            <ul class="list-reset">
-                {{#if user.local.name}}<li class="username">{{user.local.name}}</li>{{/if}}
-                {{#if user.facebook.token}}<li class="username">{{user.facebook.name}}</li>{{/if}}
-                {{#if user.twitter.token}}<li class="username">{{user.twitter.displayName }}</li>{{/if}}
-                {{#if user.google.token}}<li class="username">{{user.google.name}}</li>{{/if}}
-            </ul>
+        {{!-- <div class="col-sm-6"> --}}
+    <div class="well">
+        <h2 class="center">Hello{{#if user}}
+        <ul class="list-reset">
+            {{#if user.local.name}}<li class="username">{{user.local.name}}</li>{{/if}}
+            {{#if user.facebook.token}}<li class="username">{{user.facebook.name}}</li>{{/if}}
+            {{#if user.twitter.token}}<li class="username">{{user.twitter.displayName }}</li>{{/if}}
+            {{#if user.google.token}}<li class="username">{{user.google.name}}</li>{{/if}}
+        </ul>
             {{else}}
                  No address given
             {{/if}}
         </h2>
             </div>
-        </div>
-    </div>
+        {{!-- </div> --}}
+    {{!-- </div> --}}
 
 {{!-- navbar for top of the page to link to the homepage, the sign up form and the onoging course tracking page --}}
-<ul class="nav nav-tabs">
+{{!-- <ul class="nav nav-tabs">
   <li class="nav-item">
     <a class="nav-link active" href="#">Home</a>
   </li>
@@ -37,24 +49,32 @@
   <li class="nav-item">
     <a class="nav-link" href="#">Track Your Progress</a>
   </li>
-</ul>
+</ul> --}}
 <br>
 {{!-- dropdown to select pre-written course names --}}
-<div class="container">
+<div class="container1">
     <div class="row">
         <div class="col" id="dropdown">
-                <p class="h3">Pre-selcted Courses</p>
+                <p class="h3">Click to Enroll in Course</p>
                 <br>
-                <select class="class-selection">
-                    <option class="selections"><p class="options">Course 1</p></option>
-                    <option class="selections"><p class="options">Course 2</p></option>
-                    <option class="selections"><p class="options">Course 3</p></option>
-                    <option class="selections"><p class="options">Course 4</p></option>
-                </select>
+                {{!-- {{#each course}} --}}
+                <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 1</button>
+                <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 2</button>
+                <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 3</button>
+                <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 4</button>
+                {{!-- {{/each}} --}}
+                {{!-- <select class="class-selection">
+                    {{#each course}}
+                    <option class="selections"><p class="options">{{this.name}}</p></option>
+                    {{!-- <option class="selections"><p class="options">{{this.name}}</p></option>
+                    <option class="selections"><p class="options">{{this.name}}</p></option>
+                    <option class="selections"><p class="options">{{this.name}}</p></option> --}}
+                    {{!-- {{/each}} --}}
+                {{!-- </select> --}}
         </div>
 {{!-- form to create own course --}}
         <div class="col">
-            <form id="create" action="/" method="post">
+            <form id="create" action="/profile/course" method="post">
             <p class="h3">Create Your Own Course</p>
             <label class="label">Course Name</label>
             <input type="text" class="input"/>
@@ -96,7 +116,7 @@
             <div class="col">
                 <ul>
                 {{#each course}}
-                    <li>{{this.description}}</li>
+                    <li>{{this.name}} {{this.description}}</li>
                 {{/each}}
                 </ul>    
             </div> 
