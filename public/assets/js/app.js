@@ -40,6 +40,22 @@ $(document).ready(function() {
     })
   })
 
+
+  // $("#enroll").on("click", function(event){
+  //   var userid = $("#userid").innerHTML();
+  //   var courseid = $("#courseid").innerHTML();
+  //   console.log(userid);
+  //   console.log(courseid);
+  //   var newCourseInfo = {
+  //     userid: userid,
+  //     courseid: courseid
+  //   }
+  //   $.post(currentURL + "/profile/enroll", newCourseInfo, function (data) {
+  //      window.location.reload();
+  //   })
+  // })
+
+  
   // $("#enroll").on("click", function(event){
   //   var courseName = $("#courseName").val();
   //   var description = $("#description").val();
