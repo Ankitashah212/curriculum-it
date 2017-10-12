@@ -55,16 +55,19 @@
 <div class="container1">
     <div class="row">
         <div class="col" id="dropdown">
-                <p class="h3">Pre-selcted Courses</p>
+                <p class="h3">Click to Enroll in Course</p>
                 <br>
-                <select class="class-selection">
+                {{!-- {{#each course}} --}}
+                <button type="button" class="btn btn-narrow mb1" class="class-btn">Course 1</button>
+                {{!-- {{/each}} --}}
+                {{!-- <select class="class-selection">
                     {{#each course}}
                     <option class="selections"><p class="options">{{this.name}}</p></option>
                     {{!-- <option class="selections"><p class="options">{{this.name}}</p></option>
                     <option class="selections"><p class="options">{{this.name}}</p></option>
                     <option class="selections"><p class="options">{{this.name}}</p></option> --}}
-                    {{/each}}
-                </select>
+                    {{!-- {{/each}} --}}
+                {{!-- </select> --}}
         </div>
 {{!-- form to create own course --}}
         <div class="col">
@@ -110,7 +113,7 @@
             <div class="col">
                 <ul>
                 {{#each course}}
-                    <li>{{this.description}}</li>
+                    <li>{{this.name}} {{this.description}}</li>
                 {{/each}}
                 </ul>    
             </div> 
