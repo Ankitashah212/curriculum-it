@@ -1,22 +1,22 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(document).ready(function() {
   // $(".container1").hide();
-  // $(".classes").hide();
-  // $(".container2").hide();
+   $(".classes").hide();
+   $(".container2").hide();
   
-  $("#enroll").on("click", function(event){
-    $(".container1").show();
-    $(".classes").show();
-    $(".well").hide();
-    var currentURL = window.location.origin;
-    $.get(currentURL + "/profile/allCourses", function(data){
-      console.log(data);
-    })
-  })
+  // $("#enroll").on("click", function(event){
+  //   $(".container1").show();
+  //   $(".classes").show();
+  //   $(".well").hide();
+  //   var currentURL = window.location.origin;
+  //   $.get(currentURL + "/profile/allCourses", function(data){
+  //     console.log(data);
+  //   })
+  // })
 
   $("#track").on("click", function(event){
     $(".container2").show();
-    $(".classes").hide();
+    $(".classes").show();
     $(".well").hide();
     $(".container1").hide();
   })
@@ -25,7 +25,7 @@ $(document).ready(function() {
     $(".container2").hide();
     $(".classes").hide();
     $(".well").show();
-    $(".container1").hide();
+    $(".container1").show();
   })
 
   // $(".change-sleep").on("click", function(event) {
