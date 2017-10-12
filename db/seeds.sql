@@ -9,7 +9,6 @@ INSERT INTO users (userid, name, password ) values ('ciarra', 'ciarra', "ciarra"
 INSERT INTO course (name, description) values ('html5','entry level course');
 INSERT INTO course (name, description) values ('C','fundamentals of programming');
 INSERT INTO course (name, description) values ('javascript','Async BS');
-
 INSERT into users_to_course (userid, courseid) values ('ankita', 2);
 
 INSERT into steps (name, courseid) values ('pointers in C', 2);
