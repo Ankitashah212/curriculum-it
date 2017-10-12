@@ -4,6 +4,12 @@ var router = express.Router();
 
 const User = require("../models/users.js");
 
+// var getUser = require("./routes.js");
+// console.log("-------------------");
+// console.log(getUser.nameThing);
+// console.log("-------------------");
+
+
 
 // Import the model (users.js) to use its database functions.
 //not sure if needed since we have const User, but commenting out just in case
