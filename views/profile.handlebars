@@ -17,6 +17,8 @@
         <li class="nav-item">
             <a href="/logout" class="nav-link" id="logout">Logout</a>
         </li>
+        <div class="col-8">
+        </div>
         <p class="ml4" class="h4">Hello{{#if passedData.user}} 
             {{#if passedData.user.local.name}} {{passedData.user.local.name}} {{/if}}
             {{#if passedData.user.facebook.token}} {{passedData.user.facebook.name}} {{/if}}
@@ -55,7 +57,11 @@
                 <p class="h3">Click to Enroll in Course</p>
                 <br>
                 {{#each passedData.courses}}
+                <form id="create" action="/profile/enroll/{{courseid}}" method="post">
+                        <input type="hidden" class="input" id="enrollCourse" value="{{courseid}}">
+                        <input type="hidden" class="input" id="enrollCourse1" value="{{passedData.user.local.id}}">
                         <button type="button" class="btn btn-narrow mb1" class="class-btn">{{name}}</button>
+                </form>
                 {{/each}}
                 {{!-- {{#each passedData.courses}}
                 <button type="button" class="btn btn-narrow mb1" class="class-btn">Course</button>
@@ -97,35 +103,43 @@
             <div class="col">
                 <h3 class="mt1">Classes In-Progress</h3>                    
             </div>
-            <div class="col">
+            {{!-- <div class="col">
                 <h3 class="mt1">Pending Submissions</h3>
             </div>
             <div class="col">
                 <h3 class="mt1">Delete</h3>
-            </div>
+            </div> --}}
         </div>
         <div class="row">
             <div class="col">
                 {{#each passedData.myCourses}}
                     <p>{{this.name}} {{this.description}}</p>
+                    {{!-- {{#if passedData.myCourses}} --}}
+                    <button type="button" class="btn mb1" id="complete">Completed Course</button>
+                    {{!-- {{else}} --}}
+                    {{!-- {{/if}} --}}
+                    {{!-- {{#if passedData.myCourses}} --}}
+                    <button type="button" class="btn mb1" id="delete">Quit Course</button>
+                {{!-- {{else}} --}}
+                {{!-- {{/if}} --}}
                 {{/each}}   
             </div> 
             <div class="col">
                 <div class="form-check">
-                    {{#if passedData.myCourses}}
+                    {{!-- {{#if passedData.myCourses}}
                     <button type="button" class="btn mb1" id="complete">Complete</button>
                     {{else}}
                         No Current Courses
-                    {{/if}}
+                    {{/if}} --}}
                     {{!-- <input type="button" class="btn" id="pending" value="Completed"> --}}
                 </div>    
             </div>  
             <div class="col">
-                {{#if passedData.myCourses}}
-                <button type="button" class="btn mb1" id="delete">Delete</button>
+                {{!-- {{#if passedData.myCourses}}
+                <button type="button" class="btn mb1" id="delete">Quit Course</button>
                 {{else}}
                     No Courses to Delete
-                {{/if}}
+                {{/if}} --}}
                 {{!-- <input type="button" class="btn" id="delete" value="Delete"> --}}
             </div>                     
         </div>
