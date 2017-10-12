@@ -1,6 +1,5 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(document).ready(function() {
-  // $(".container1").hide();
    $(".classes").hide();
    $(".container2").hide();
   

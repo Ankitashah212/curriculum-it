@@ -127,11 +127,21 @@
             </div> 
             <div class="col">
                 <div class="form-check">
-                    <input type="button" class="btn" id="pending" value="Completed">
+                    {{#if course.name}}
+                    <button type="button" class="btn mb1">Complete</button>
+                    {{else}}
+                        No Current Courses
+                    {{/if}}
+                    {{!-- <input type="button" class="btn" id="pending" value="Completed"> --}}
                 </div>    
             </div>  
             <div class="col">
-                <input type="button" class="btn" id="delete" value="Delete">
+                {{#if course.name}}
+                <button type="button" class="btn mb1">Delete</button>
+                {{else}}
+                    No Courses to Delete
+                {{/if}}
+                {{!-- <input type="button" class="btn" id="delete" value="Delete"> --}}
             </div>                     
         </div>
     </div>
