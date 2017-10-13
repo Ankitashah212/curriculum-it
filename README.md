@@ -1,6 +1,6 @@
 # Curriculum-It
 
-Curriculum-It is the task planning app specifically designed for self-learners. 
+Curriculum-It is a task manager app specifically designed for self-learners. 
 
 Here's how it works:
 
