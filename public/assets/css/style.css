@@ -71,3 +71,9 @@ form{
   float: left;
   margin-left: 10px;
 }
+
+textarea {
+  width: 190px;
+  padding-top: 10px;
+  margin-top: 10px;
+}
