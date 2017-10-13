@@ -75,16 +75,20 @@
         <div class="row">
             <div class="col-12">
                 {{#each passedData.myCourses}}
-                <div class="row">
+                {{!-- <div class="row">
 
                     <div class="col-4">
                         {{#if inprogress}}
-                        <p>{{this.name}} {{this.description}}{{this.signups}}</p>
+                        <p>{{this.name}} ({{this.description}}{{this.signups}})</p>
                     </div>
                       
-                    <div class="col-4">
-                    {{else}}
-                        <p>{{this.name}} {{this.description}}</p>
+                    {{else}}--}}
+                    {{#unless inprogress}}
+                    <div class="row">
+
+                        <div class="col-4">
+
+                        <h4>{{this.name}}</h4> <p>{{this.description}}</p> 
 
                     </div>
 
@@ -105,7 +109,7 @@
                     <form method="post" id= "delete" action="/profile/deletecourse/{{this.signups}}">
                     <button type="submit" class="btn mb1" id="delete">Quit Course</button>
                     </form>
-                     {{/if}}
+                     {{/unless}}
 
                     </div>
                 </div>
@@ -117,7 +121,19 @@
     <br>
 
     <div class="completed-list">
-        <h3 class="mt1">Completed Courses</h3>
+    <h3 class="mt1">Completed Courses</h3>
+    {{#each passedData.myCourses}}
+        {{#if inprogress}}
+            <div class="row">
+                <br>
+                <div class="col-12">
+
+                    <p><strong>{{this.name}}</strong>: {{this.description}}</p> 
+
+                </div>
+            </div>
+        {{/if}}
+    {{/each}}
     </div>
 
 </div> <!--End Container 2-->

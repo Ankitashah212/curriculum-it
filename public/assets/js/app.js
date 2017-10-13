@@ -40,7 +40,6 @@ $(document).ready(function() {
     })
   })
 
-
   // $("#enroll").on("click", function(event){
   //   var userid = $("#userid").innerHTML();
   //   var courseid = $("#courseid").innerHTML();
