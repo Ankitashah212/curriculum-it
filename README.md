@@ -2,7 +2,7 @@
 
 Curriculum-It is a task manager app specifically designed to help self-directed learners reach their goals.
 
-## Here's how it works:
+## How It Works
 
 * The user creates a profile using a local sign up, or social media authentication. 
 * The user adds subjects that they want to learn, which the app saves in its database and displays on the main page. 
