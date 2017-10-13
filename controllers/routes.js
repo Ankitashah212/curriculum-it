@@ -69,20 +69,26 @@ console.log(req.theVarName);
 
 }
 router.get('/profile', isLoggedIn, function (req, res) {
+    createLocalUsers(req, res);
     var allCourses;
+    var userCourses;
     console.log("I'm in profile");
     orm.allCourse(function(result) {
         allCourses = result;
        // console.log(allCourses[0].name);
+       orm.myCourses(req.user.id, function(data){
+           console.log("I'm in data");
+           console.log(data);
+       
         res.render('profile.handlebars', {passedData
             :{
             user: req.user,
-            courses: allCourses
+            courses: allCourses,
+            myCourses: data
         }});
+    });
      } );
-   
 
-   
 });
 
 // LOGOUT s==============================
@@ -305,9 +311,31 @@ router.post("/profile/addcourse", function (req, res) {
          });
      });
 
+     router.post("/profile/updatecourse/:id",function (req, res) {
+        console.log("In update course");
+        //console.log(req.user.id);
+        
+        var courseId = req.params.id;
+         //var userId = req.params.logedId;
+        console.log(courseId, req.user.id);
+    
+        orm.updateCourse(courseId, function(result) {
+          res.redirect("/profile");
+         });
+     });
 
-
-
+     router.post("/profile/deletecourse/:id",function (req, res) {
+        console.log("I'm here at profile/enroll");
+        //console.log(req.user.id);
+        
+        var courseId = req.params.id;
+         //var userId = req.params.logedId;
+        console.log(courseId, req.user.id);
+    
+        orm.deleteCourse(courseId, function(result) {
+          res.redirect("/profile");
+         });
+     });
 
 module.exports = {
     dispatch:router,
