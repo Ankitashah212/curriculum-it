@@ -1,15 +1,17 @@
 # Curriculum-It
 
-Curriculum-It is a task planner app specifically designed for self-learners. 
+Curriculum-It is the task planning app specifically designed for self-learners. 
 
-* First, the user creates a profile using a local sign up or social media authentication. 
+Here's how it works:
+
+* First, the user creates a profile using a local sign up, or social media authentication. 
 * The user adds subjects that they want to learn, which the app saves and displays on the main page. 
 * From there, the user can click on any of the subjects in order to add them to a list of active “courses.” 
 * Once the user is finished with a topic, they can set it as completed, or they can delete the course at any time.
 
 ## Future Development
 
-In future versions, Curriculum-It will have a more robust learning plan-building system based on SMART goals and other best practices for self-directed learning. 
+In future versions, Curriculum-It will have a more robust learning plan organization system based on SMART goals and other best practices for self-directed learning. 
 
 It will: 
 
