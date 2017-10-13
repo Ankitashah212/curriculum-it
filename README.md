@@ -9,9 +9,12 @@ Curriculum-It is a task planner app specifically designed for self-learners.
 
 ## Future Development
 
-In future versions, Curriculum-It will have a more robust learning plan-building system. It will: 
+In future versions, Curriculum-It will have a more robust learning plan-building system based on SMART goals and other best practices for self-directed learning. 
+
+It will: 
 
 * Prompt the user for input on variables like the type of subject they’re learning
 * Break down goals into smaller parts
 * Integrate learning sources the user wants to use for specific sub-topics
+* Integrate projects and smaller activities
 * Add specific deadlines and prompts
