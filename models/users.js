@@ -20,7 +20,7 @@ var user = {
         });
     },
     deleteCourse: function (id, cb) {
-        deleteCourse.update(id, function (res) {
+        orm.deleteCourse(id, function (res) {
             cb(res);
         });
     },

@@ -113,13 +113,25 @@
         <div class="row">
             <div class="col">
                 {{#each passedData.myCourses}}
+                    
+
+                    {{#if inprogress}}
+                    <p>{{this.name}} {{this.description}}{{this.signups}}</p>
+
+                      
+
+                    {{else}}
                     <p>{{this.name}} {{this.description}}</p>
                     {{!-- {{#if passedData.myCourses}} --}}
-                    <button type="button" class="btn mb1" id="complete">Completed Course</button>
-                    {{!-- {{else}} --}}
-                    {{!-- {{/if}} --}}
-                    {{!-- {{#if passedData.myCourses}} --}}
-                    <button type="button" class="btn mb1" id="delete">Quit Course</button>
+                    <form method="post" id ="update" action="/profile/updatecourse/{{this.signups}}">
+                    <button type="submit" class="btn mb1" id="complete">Completed Course</button>
+                    </form>
+{{!-- {{#if passedData.myCourses}} --}}
+                    <form method="post" id= "delete" action="/profile/deletecourse/{{this.signups}}">
+                    <button type="submit" class="btn mb1" id="delete">Quit Course</button>
+                    </form>
+                     {{/if}}
+                    
                 {{!-- {{else}} --}}
                 {{!-- {{/if}} --}}
                 {{/each}}   
