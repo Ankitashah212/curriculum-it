@@ -67,3 +67,7 @@ form{
   background-color: #DBF3FA;
   padding: 10px;
 }
+#create {
+  float: left;
+  margin-left: 10px;
+}
