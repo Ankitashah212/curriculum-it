@@ -20,3 +20,6 @@ It will:
 * Integrate learning sources the user wants to use for specific sub-topics
 * Integrate projects and smaller activities
 * Add specific deadlines and prompts
+
+Deployed on Heroku 
+https://whispering-garden-26491.herokuapp.com/
